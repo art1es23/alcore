@@ -1,0 +1,56 @@
+@import "./src/sass/helpers/var"
+
+.chooseLanguage
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &__item
+    display: flex
+    font-size: 1.1vw
+    border: none
+    background-color: transparent
+    position: relative
+    text-align: center
+    justify-content: center
+    align-items: center
+    padding: 0 0.5rem
+    transition: $transition
+
+    &:hover
+      cursor: pointer
+      color: $olive
+
+    &:nth-child(2n)
+      &::after,
+      &::before
+        content: ''
+        display: block
+        position: absolute
+        background-color: $white
+        width: 1px
+        height: 100%
+        top: 50%
+        transform: translate(-50%, -50%)
+
+      &::before
+        left: 0
+      &::after
+        right: 0
+
+@media screen and (max-width: 1224px)
+  .chooseLanguage
+    &__item
+      font-size: 1.25vw
+@media screen and (max-width: 1024px)
+  .chooseLanguage
+    &__item
+      font-size: 1.5vw
+@media screen and (max-width: 768px)
+  .chooseLanguage
+    &__item
+      font-size: 2vw
+@media screen and (max-width: 480px)
+  .chooseLanguage
+    &__item
+      font-size: 4vw

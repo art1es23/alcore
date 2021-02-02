@@ -1,0 +1,83 @@
+@import "./src/sass/helpers/var"
+
+.footer
+  width: 100%
+  display: flex
+  align-items: center
+  position: sticky
+  left: 0
+  bottom: 0
+  z-index: 1
+  padding: 5% 12.5%
+  background-position: no-repeat
+  background-size: cover
+  background-repeat: no-repeat
+  background-image: url('../img/footer_bg.jpg')
+
+.menu-links
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+
+  &__item
+    width: calc( 100% / 3 )
+    display: flex
+    min-height: 15rem
+    height: auto
+    // border: 1px solid $white
+    padding: 1.5vw
+    justify-content: center
+    align-items: center
+    position: relative
+    line-height: 1.1vw
+    color: $black
+    &:nth-child(even)
+      margin: 0 2vw
+
+    &::after
+      display: block
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      border: solid 1px $green
+
+    img
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translate(-50%, -50%)
+      z-index:
+      background-color: $black
+      z-index: 5
+
+    p
+      font-size: 0.8vw
+
+.phone-list
+  margin-right: 0.25vw
+  h3
+    font-size: 0.7vw
+    font-weight: 600
+  a
+    font-size: 0.8vw
+    color: $black
+    &:hover
+      cursor: pointer
+      color: $green
+
+@media screen and ( max-width: 1366px)
+  .footer
+    padding: 7.5%
+
+  .menu-links
+    &__item
+      min-height: 12.5rem
+      &:nth-child(even)
+        margin: 0 1.25rem
+
+  .phone-list
+    margin-right: 0.25rem
