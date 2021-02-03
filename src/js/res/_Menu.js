@@ -4,6 +4,7 @@ class Menu {
         this.menuToogle = this.header.querySelector('.menu');
         this.menuNav = this.header.querySelector('.navigation--wrapper');
         this.slider = document.querySelector('.slider');
+        this.body = document.body;
 
         this.toggleNavigation();
         this.scrollDefault();
@@ -25,52 +26,45 @@ class Menu {
             let toggleMenu = this.menuNav;
             let toggleHeader = this.header;
             let slider = this.slider;
+            let body = this.body;
 
-            if (toggleHeader.classList.contains('header--size')) {
-                toggleMenu.classList.remove('navigation--show');
-                toggleBtn.classList.remove('btn--swap');
-                toggleHeader.classList.remove('header--size');
-                slider.classList.remove('slider--size');
-                document.querySelector('.navigation').style.alignItems = 'center';
-            }
+            console.log(body);
+
+            // if (toggleHeader.classList.contains('header--size')) {
+            //     toggleMenu.classList.remove('navigation--show');
+            //     toggleBtn.classList.remove('btn--swap');
+            //     toggleHeader.classList.remove('header--size');
+            //     slider.classList.remove('slider--size');
+            //     document.querySelector('.navigation').style.alignItems = 'center';
+            //     body.classList.remove('scroll--hidden');
+            // }
 
             toggleMenu.classList.toggle('navigation--show');
-            toggleBtn.classList.toggle('btn--swap');
+            toggleBtn.classList.toggle('menu--toggle');
             toggleHeader.classList.toggle('header--size');
             slider.classList.toggle('slider--size');
             document.querySelector('.navigation').style.alignItems = 'baseline';
-            toggleHeader.classList.remove('header--position');
+            body.classList.toggle('scroll--hidden');
         });
     }
 
     scrollDefault() {
+        let toggleBtn = this.menuToogle;
         let toggleHeader = this.header;
         let toggleMenu = this.menuNav;
-        let xHeader = toggleHeader.clientHeight;
+        // let xHeader = toggleHeader.clientHeight;
 
         window.addEventListener('scroll', (e) => {
             e.preventDefault();
             let scrollPage = window.pageYOffset;
-            console.log('adsa', xHeader);
 
             toggleHeader.classList.remove('header--position', 'header--size');
-            // toggleMenu.classList.remove('navigation--show');
 
-            console.log(scrollPage);
-            if (scrollPage > xHeader / 2) {
+            if (scrollPage > 0) {
                 toggleHeader.classList.add('header--position');
-
-                // if (toggleHeader.classList.contains('header--size')) {
-                //     toggleMenu.classList.add('navigation--show');
-                // }
-                // if (toggleHeader.classList.contains('header--size')) {
-                //     toggleHeader.classList.remove('header--size');
-                //     toggleMenu.classList.remove('navigation--show');
-                // }
-                console.log('start');
             } else {
                 toggleMenu.classList.remove('navigation--show');
-                // toggleHeader.classList.remove('header--size');
+                toggleBtn.classList.remove('menu--toggle');
             }
 
         });

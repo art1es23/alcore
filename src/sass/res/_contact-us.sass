@@ -75,8 +75,7 @@
         line-height: 1.5vw
         width: 100%
         border-radius: 10px
-        border: none
-        outline: 1px solid $light-olive
+        border: 1px solid $light-olive
 
     &__btn
         display: flex
@@ -126,6 +125,12 @@
     .contact-us
         &__legend
             font-size: 1vw
+
+@media screen and ( max-width: 1366px)
+    .form-contact
+        &__input
+            margin-top: 1.5rem
+
 @media screen and ( max-width: 1224px)
     .contact-us
         padding: 10% 7.5% 0

@@ -7,6 +7,7 @@
   position: sticky
   left: 0
   bottom: 0
+  right: 0
   z-index: 1
   padding: 5% 12.5%
   background-position: no-repeat
@@ -26,7 +27,7 @@
     min-height: 15rem
     height: auto
     // border: 1px solid $white
-    padding: 1.5vw
+    padding: 1.5vw 2.5vw
     justify-content: center
     align-items: center
     position: relative
@@ -58,6 +59,11 @@
       font-size: 0.8vw
 
 .phone-list
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: flex-start
   margin-right: 0.25vw
   h3
     font-size: 0.7vw
@@ -69,15 +75,27 @@
       cursor: pointer
       color: $green
 
+@media screen and ( max-width: 1600px)
+  .menu-links
+    &__item
+      padding: 2.5vw
+      min-height: 12.5rem
+
+      p
+        font-size: 0.8vw
+        line-height: 1.25vw
+
+  .phone-list
+    h3
+      font-size: 0.8vw
+    a
+      font-size: 0.8vw
+
 @media screen and ( max-width: 1366px)
   .footer
     padding: 7.5%
 
+@media screen and ( max-width: 1024px)
   .menu-links
     &__item
-      min-height: 12.5rem
-      &:nth-child(even)
-        margin: 0 1.25rem
-
-  .phone-list
-    margin-right: 0.25rem
+      min-height: 10rem
