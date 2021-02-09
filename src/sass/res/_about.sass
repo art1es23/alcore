@@ -1,0 +1,65 @@
+@import "./src/sass/helpers/var"
+
+.about
+    display: flex
+    width: 100%
+    min-height: 100vh
+    background-image: url('../img/slider_bg.jpg')
+    margin-top: 10%
+
+.history
+    margin-left: 35%
+    display: flex
+    flex-direction: column
+    width: 100%
+    align-items: center
+    padding: 0 5%
+    background-image: url('../img/bg.jpg')
+    background-attachment: fixed
+
+    &__title
+        font-size: 2vw
+        font-weight: 600
+        text-transform: initial
+        color: $black
+
+    &--wrapper
+        display: grid
+        grid-template-columns: repeat(3, auto)
+        // grid-template-rows: repeat(4, minmax(10rem, 1fr))
+        grid-gap: 2.5vw
+        padding: 5%
+        justify-content: center
+        align-items: center
+
+.event
+    background-color: #f1f1f1
+    display: flex
+    flex-direction: column
+    width: 100%
+    align-items: center
+    padding: 10%
+    box-shadow: -10px 10px 15px 2.5px rgba($black, 0.15)
+    height: 100%
+    border-top-left-radius: 30px
+    border-bottom-left-radius: 30px
+    border-bottom-right-radius: 30px
+    transition: $transition
+
+    &:hover
+        box-shadow: -10px 10px 15px 2.5px rgba($green-light, 0.15)
+
+    &__number
+        text-align: center
+        font-size: 2vw
+        font-weight: 600
+        color: $green
+
+    &__description
+        display: flex
+        justify-content: center
+        align-items: center
+        text-align: center
+        padding: 5% 0
+        line-height: 1vw
+        color: $black

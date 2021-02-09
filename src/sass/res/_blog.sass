@@ -1,0 +1,115 @@
+@import "./src/sass/helpers/var"
+
+.blog
+    width: 100%
+    min-height: 100vh
+    position: relative
+
+    &__slider
+        width: 75%
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 7.5% auto 0
+        padding-bottom: 2.5%
+
+        &--wrapper
+            width: 100%
+            justify-content: center
+            align-items: center
+
+    &__inner
+        display: flex
+        width: 100%
+        justify-content: center
+        align-items: center
+
+    &__arrows
+        width: 15%
+        bottom: 0
+        right: 0
+        left: 100%
+        top: 100%
+        transform: translate(-100%,100%)
+        display: flex
+        z-index: 100
+        position: absolute
+        justify-content: space-between
+        align-items: center
+
+        &--prev,
+        &--next
+            transform: scale(0.35)
+            &:hover
+                cursor: pointer
+
+.page-blog
+    width: 100%
+    display: grid
+    grid-template-columns: repeat(2, auto)
+    justify-items: space-between
+    align-content: center
+    padding: 2.5%
+    grid-gap: 5vw
+
+    &__item
+        display: flex
+        flex-direction: column
+        width: 100%
+        padding: 10%
+        box-shadow: -10px 10px 15px 2.5px rgba($black, 0.15)
+        border-top-left-radius: 30px
+        border-bottom-left-radius: 30px
+        transition: $transition
+        height: 100%
+        color: $black
+        background-color: $white
+        position: relative
+
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            height: 3.5vw
+            width: 3.5vw
+            border-radius: 50%
+            bottom: 0
+            right: 0
+            transition: $transition
+            transform: translate(50%, 50%)
+            background-color: #ccc
+
+        &::after
+            content: ''
+            display: block
+            position: absolute
+            height: 1.75vw
+            width: 1.75vw
+            border-radius: 50%
+            bottom: 0
+            right: 0
+            transition: $transition
+            transform: translate(50%, 50%)
+            border: 5px solid $white
+
+        &:hover
+            background-color: $green
+            color: $white
+            box-shadow: -10px 10px 15px 2.5px rgba($green-light, 0.15)
+
+            cursor: pointer
+            &::before
+                background-color: $white
+            &::after
+                border: 5px solid $green
+
+    &__description
+        display: flex
+        justify-content: stretch
+        align-items: center
+        text-align: justify
+        line-height: 1.25vw
+
+.legend--width
+    width: calc( 100% / 3.5 )

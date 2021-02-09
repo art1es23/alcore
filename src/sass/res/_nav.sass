@@ -8,6 +8,9 @@
   position: relative
   clip-path: circle(200% at 90%)
 
+  &--align
+    align-items: baseline
+
   &--wrapper
     display: none
 
@@ -31,16 +34,16 @@
   &__link
     display: flex
     width: 100%
-    justify-content: center
+    justify-content: flex-start
     align-items: center
     color: $black
     font-size: 1vw
-    padding: 0.75vw 1vw
+    padding: 1vw 0.75vw
     transition: $transition
     &:hover,
     &:focus,
     &:active
-      color: $sand-olive
+      color: $green-light
 
   &--show
     display: flex
@@ -57,7 +60,7 @@
   flex-direction: column
   top: 100%
   left: 0
-  align-items: baseline
+  // align-items: baseline
 
   &__item
     display: flex
@@ -99,18 +102,19 @@
 
   &__link
     display: flex
-    width: 100%
-    justify-content: center
-    align-items: center
+    width: auto
     color: $black
     font-size: 1vw
-    padding: 0.75vw 0.5vw
+    padding: 1vw 0.75vw
     transition: $transition
     text-transform: uppercase
+    justify-content: flex-start
+    align-items: flex-start
+    text-align: left
     &:hover,
     &:focus,
     &:active
-      background-color: $olive
+      color: $green-light
 
 .menu
   display: flex
@@ -120,7 +124,6 @@
   padding: 0.35rem 0.15rem
   justify-content: center
   align-items: center
-  margin-left: 2.5rem
 
   &:hover
     cursor: pointer

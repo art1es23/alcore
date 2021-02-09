@@ -1,47 +1,94 @@
 @import "./src/sass/helpers/var"
 
 .contacts
-  padding: 5% 0 11.5%
+  width: 85%
+  position: relative
+  display: flex
+  align-items: center
+  margin: 10% auto 5%
 
   &--wrapper
+    display: grid
+    width: 100%
+    justify-content: space-between
+    align-items: center
+    grid-template-columns: repeat(4, 1fr)
+    grid-gap: 5rem
+
+  &__item
     display: flex
-    margin: 0 auto
-    width: 40%
+    flex-direction: column
+    justify-content: space-between
+    height: 100%
+    align-items: center
+    box-shadow: -10px 10px 15px 2.5px rgba($black, 0.15)
+    border-top-left-radius: 30px
+    border-bottom-left-radius: 30px
+    border-bottom-right-radius: 30px
+    transition: $transition
+    background-color: $white
+
+    &:hover
+      box-shadow: -10px 10px 10px 2.5px rgba($green, 0.25)
+
+    &--bg
+      background-color: $green
+      background-image: url('../img/contacts_bg.png')
+      background-position: center
+      background-size: cover
+      background-repeat: no-repeat
+
+.list-contacts
+  padding: 10% 15%
+
+  &__item
+    display: flex
+    flex-direction: column
+    width: 100%
+
+  &__caption,
+  &__link,
+  &__description
+    padding: 0.35rem 0
+    text-align: left
+    display: flex
+    justify-content: flex-start
+    align-items: flex-start
+    font-size: 0.8vw
+    color: $black
+
+  &__caption
+    font-weight: 600
+    color: $green
+    font-size: 1vw
+
+.btn
+  &--wrapper
+    display: flex
+    width: 100%
+    height: 100%
+    align-items: center
     justify-content: space-between
 
-    *
-      width: 100%
-
-  .img-wrapper
-    width: 75%
-
-@media screen and (max-width: 1366px)
-  .contacts
-    &--wrapper
-      .submenu-links__item
-        font-size: 1.25rem
-
-@media screen and (max-width: 1024px)
-  .contacts
-
-    &--wrapper
-      align-items: flex-start
-      margin-bottom: 2.5%
-      width: 100%
-
-    &__item
-      flex-direction: row
-      flex-wrap: wrap
-
-      .shop-location
-        width: 50%
-        margin-bottom: 5%
-        &:nth-child(2n)
-          align-items: flex-end
-          & > ul li
-            text-align: right
-
-
-    .img-wrapper
-      width: 100%
-
+  &--download
+    display: flex
+    width: 10vw
+    height: 10vw
+    border: none
+    padding: 0 7.5%
+    white-space: inherit
+    background-color: transparent
+    font-size: 1.25vw
+    color: $white
+    background: 80% top / 25% no-repeat url('../img/pdf.png'), center / contain no-repeat url('../img/form_submit.png')
+    z-index: 5
+    font-size: 0.8vw
+    text-transform: uppercase
+    border-top-left-radius: 50%
+    border-bottom-left-radius: 50%
+    border-bottom-right-radius: 50%
+    box-shadow: -10px 10px 10px 2.5px rgba($black, 0.15)
+    transition: $transition
+    &:hover
+      cursor: pointer
+      box-shadow: -10px 10px 10px 2.5px rgba($green, 0.25)

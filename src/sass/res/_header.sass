@@ -13,6 +13,7 @@
   z-index: 9999
   transition: all 0.3s ease
   overflow: hidden
+  animation: hideHeader 2s ease forwards
   // clip-path: circle(10.5rem at 15%)
   // clip-path: circle(10% at 15.5%)
 
@@ -26,38 +27,48 @@
       transform: translateY(65%)
 
   &--size
-    animation: hideLogo 2s ease forwards
+    animation: showHeader 2s ease forwards
     // align-items: baseline
 
     .logo
       &__link
-        background-color: transparent
         transition: $transition
+        transform: translateY(0)
 
       &__caption
         color: $black
         font-size: 1.5vw
 
   &--position
-    animation: hideLogo 2s ease forwards
+    animation: showHeader 2s ease forwards
     & .logo
       &__link
-        border-radius: none
-        background-color: transparent
         min-height: 10vh
         transition: $transition
+        transform: translateY(0)
 
       &__caption
         color: $black
         font-size: 1.5vw
 
-@keyframes hideLogo
+@keyframes showHeader
   0%
-    transition: all 1s ease
+    transition: all 2s ease
     clip-path: circle(15% at 15% 50%)
+    background-color: $black
   100%
     clip-path: circle(200% at 15% 50%)
     background-color: $white
+
+@keyframes hideHeader
+  0%
+    transition: all 2s ease
+    background-color: $white
+    clip-path: circle(200% at 15% 50%)
+
+  100%
+    clip-path: circle(7.5% at 12.5% 40%)
+    background-color: $black
 
 @media screen and (max-width: 1366px)
   .header

@@ -4,6 +4,7 @@
   display: flex
   justify-content: space-between
   align-items: center
+  margin: 0 2.5rem
 
   &__item
     display: flex
@@ -17,9 +18,11 @@
     padding: 0 0.5rem
     transition: $transition
 
-    &:hover
+    &:hover,
+    &:focus,
+    &:active
       cursor: pointer
-      color: $olive
+      color: $green-light
 
     &:nth-child(2n)
       &::after,

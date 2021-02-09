@@ -2,12 +2,11 @@
 
 .logo
   position: relative
-  top: 25%
   left: 0
   display: flex
   align-items: center
   justify-content: space-between
-  width: 20rem
+  width: 15rem
   transition: $transition
   &__link
     width: 100%
@@ -15,44 +14,25 @@
     align-items: center
     justify-content: center
     flex-direction: column
-    min-height: 15rem
+    min-height: 12.5rem
     position: relative
     object-fit: cover
-    background-color: $black
+    // background-color: $black
     transition: $transition
     overflow: hidden
+    transform: translateY(-7.5%)
 
     border-radius: 50%
-    &::after
-      content: ''
-      position: absolute
-      display: none
-      top: 50%
-      left: 50%
-      min-height: 15rem
-      width: 125%
-      background-color: black
-
-      transform: translate(-50%, -50%)
-      transition: all 1s ease
-      border-radius: 50%
-      animation: showLogo 1s ease forwards
-    // img
-    //   position: absolute
-    //   top: 25%
-    //   left: 50%
-    //   transform: translate(-50%, -50%)
-    //   z-index: 5
-    //   width: 25%
-    //   height: 25%
-    //   object-fit: contain
 
   &__icon
     width: 15%
     height: 15%
     margin: 0 auto 0.25rem
+    transform: scale(1.1)
 
   &__caption
+    transform: scale(1.1)
+
     display: flex
     font-size: 2rem
     color: $white
@@ -67,18 +47,15 @@
 
 @media screen and (max-width: 1224px)
   .logo
-    height: 5rem
-    width: 12.5%
-    top: 20%
     &__link
       &::after
         min-height: 12.5rem
 
 @media screen and (max-width: 768px)
   .logo
-    top: 10%
-    width: 15%
+    width: 15rem
     &__link
+      min-height: 10rem
       &::after
         min-height: 10rem
 

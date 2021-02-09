@@ -1,6 +1,6 @@
 @keyframes down
   0%
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1)
+    box-shadow: -10px 10px 15px 2.5px rgba($black, 0.15)
   50%
     transform: rotateZ(-15deg)
   80%
@@ -16,31 +16,24 @@
   80%
     transform: rotateZ(-15deg)
   100%
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1)
+    box-shadow: -10px 10px 15px 2.5px rgba($black, 0.15)
 
 @keyframes show
   0%
     opacity: 0
     visibility: hidden
-    transform: translateX(100%)
-  80%
-    transform: translateX(-2.5%)
   100%
     opacity: 1
     visibility: visible
-    transform: translateX(0)
 
 @keyframes hide
   0%
     opacity: 1
     visibility: visible
-    transform: translateX(0)
-  20%
-    transform: translateX(5%)
   100%
     opacity: 0
     visibility: hidden
-    transform: translateX(-100%)
+
 @keyframes showModal
   0%
     opacity: 0
@@ -80,3 +73,272 @@
     opacity: 0.1
   to
     opacity: 1
+
+@keyframes pulse
+  0%
+    transform: scale(1.1)
+  100%
+    transform: scale(1.25)
+
+@keyframes showPulse
+  0%
+    // transform: scale(0.1)
+    background: url('../img/circle1.png') center / 0% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+
+  5%
+    // transform: scale(0.2)
+    background: url('../img/circle1.png') center / 14% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  10%
+    // transform: scale(0.3)
+    background: url('../img/circle1.png') center / 28% no-repeat,
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  15%
+    // transform: scale(0.4)
+    background: url('../img/circle1.png') center / 42% no-repeat,
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  20%
+    // transform: scale(0.5)
+    background: url('../img/circle1.png') center / 56% no-repeat,
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  25%
+    // transform: scale(0.6)
+    background: url('../img/circle1.png') center / 70% no-repeat,
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat,
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  30%
+    // transform: scale(0.7)
+    background: url('../img/circle1.png') center / 84% no-repeat,
+    url('../img/circle1.png') center / 70% no-repeat, 
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat,
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  35%
+    // transform: scale(0.8)
+    background: url('../img/circle1.png') center / 98% no-repeat,
+    url('../img/circle1.png') center / 84% no-repeat, 
+    url('../img/circle1.png') center / 70% no-repeat, 
+    url('../img/circle1.png') center / 56% no-repeat,
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  40%
+    // transform: scale(0.9)
+    background: url('../img/circle1.png') center / 112% no-repeat,
+    url('../img/circle1.png') center / 98% no-repeat, 
+    url('../img/circle1.png') center / 84% no-repeat, 
+    url('../img/circle1.png') center / 70% no-repeat,
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  45%
+    // transform: scale(0.9)
+    background: url('../img/circle1.png') center / 128% no-repeat,
+    url('../img/circle1.png') center / 112% no-repeat, 
+    url('../img/circle1.png') center / 98% no-repeat, 
+    url('../img/circle1.png') center / 84% no-repeat,
+    url('../img/circle1.png') center / 70% no-repeat, 
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  50%
+    // transform: scale(0.9)
+    background: url('../img/circle1.png') center / 142% no-repeat,
+    url('../img/circle1.png') center / 128% no-repeat, 
+    url('../img/circle1.png') center / 112% no-repeat, 
+    url('../img/circle1.png') center / 98% no-repeat,
+    url('../img/circle1.png') center / 84% no-repeat, 
+    url('../img/circle1.png') center / 70% no-repeat, 
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat
+  55%
+    // transform: scale(0.2)
+    background: url('../img/circle1.png') center / 142% no-repeat,
+    url('../img/circle1.png') center / 128% no-repeat, 
+    url('../img/circle1.png') center / 112% no-repeat, 
+    url('../img/circle1.png') center / 98% no-repeat,
+    url('../img/circle1.png') center / 84% no-repeat, 
+    url('../img/circle1.png') center / 70% no-repeat, 
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat
+  60%
+    // transform: scale(0.3)
+    background: url('../img/circle1.png') center / 128% no-repeat,
+    url('../img/circle1.png') center / 112% no-repeat, 
+    url('../img/circle1.png') center / 98% no-repeat, 
+    url('../img/circle1.png') center / 84% no-repeat,
+    url('../img/circle1.png') center / 70% no-repeat, 
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  65%
+    // transform: scale(0.4)
+    background: url('../img/circle1.png') center / 112% no-repeat,
+    url('../img/circle1.png') center / 98% no-repeat, 
+    url('../img/circle1.png') center / 84% no-repeat, 
+    url('../img/circle1.png') center / 70% no-repeat,
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  70%
+    // transform: scale(0.5)
+    background: url('../img/circle1.png') center / 98% no-repeat,
+    url('../img/circle1.png') center / 84% no-repeat, 
+    url('../img/circle1.png') center / 70% no-repeat, 
+    url('../img/circle1.png') center / 56% no-repeat,
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  75%
+    // transform: scale(0.6)
+    background: url('../img/circle1.png') center / 84% no-repeat,
+    url('../img/circle1.png') center / 70% no-repeat, 
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat,
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  80%
+    // transform: scale(0.7)
+    background: url('../img/circle1.png') center / 70% no-repeat,
+    url('../img/circle1.png') center / 56% no-repeat, 
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat,
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  85%
+    // transform: scale(0.8)
+    background: url('../img/circle1.png') center / 56% no-repeat,
+    url('../img/circle1.png') center / 42% no-repeat, 
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  90%
+    // transform: scale(0.9)
+    background: url('../img/circle1.png') center / 42% no-repeat,
+    url('../img/circle1.png') center / 28% no-repeat, 
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  95%
+    // transform: scale(0.9)
+    background: url('../img/circle1.png') center / 28% no-repeat,
+    url('../img/circle1.png') center / 14% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+  100%
+    // transform: scale(0.9)
+    background: url('../img/circle1.png') center / 14% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat,
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat, 
+    url('../img/circle1.png') center / 0% no-repeat
+
+@keyframes hidePulse
+  0%
+    opacity: 1
+    visibility: visible
+  100%
+    opacity: 0
+    visibility: hidden

@@ -1,0 +1,163 @@
+@import "./src/sass/helpers/var"
+
+.glue-page
+    flex-wrap: wrap
+
+    &__description
+        background-color: $white
+        display: flex
+        text-align: justify
+        font-size: 1vw
+        border: 2px solid $green-light
+        line-height: 1.5vw
+        padding: 2.5% 7.5%
+        margin: 7.5% 0
+
+        border-top-left-radius: 30px
+        border-bottom-right-radius: 30px
+        border-bottom-left-radius: 30px
+
+    &__list
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 1.5vw
+
+        &--wrapper
+            display: flex
+            flex-direction: column
+            width: 100%
+            justify-content: space-between
+
+.glue
+    display: flex
+    justify-content: space-between
+    width: 85%
+    margin: 2.5% auto
+
+    &--reverse
+        flex-direction: row-reverse
+
+        & .glue--wrapper
+            margin-left: 0
+            margin-right: 10%
+
+    &--wrapper
+        display: flex
+        flex-direction: column
+        width: 60%
+        align-items: center
+        margin-left: 10%
+
+    &__title
+        font-size: 1.5vw
+        display: flex
+        font-weight: 700
+        color: $green
+        width: 100%
+        margin-bottom: 2.5vw
+
+    &__img
+        position: relative
+        width: 100%
+        height: 27.5vw
+        background: url('../img/glue_bg.jpg') center / cover no-repeat
+
+        &::before
+            content: ''
+            position: absolute
+            display: block
+            bottom: 0
+            right: 0
+            height: 7.5vw
+            width: 7.5vw
+            background: center / contain no-repeat url('../img/after_pattern.png')
+
+.glue-list
+    display: flex
+    flex-direction: column
+    width: 100%
+
+    &__item
+        display: flex
+        flex-direction: column
+        width: 100%
+        margin-bottom: 1vw
+        position: relative
+    &__radio
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 0
+        visibility: hidden
+
+        &:checked
+            & ~ .glue-list__title
+                color: $white
+                background-color: $green
+                box-shadow: -5px 5px 10px 5px rgba($green-light, 0.25)
+                &::after
+                    background: url('../img/minus.png') center / contain no-repeat
+
+            & ~ .glue-list__description
+                display: flex
+
+    &__title
+        padding: 2.5% 5%
+        display: flex
+        align-items: center
+        background-color: $white
+        font-size: 1vw
+        font-weight: 600
+        border-top-left-radius: 20px
+        border-bottom-right-radius: 20px
+        border-bottom-left-radius: 20px
+        transition: all 0.5s ease-in-out
+        position: relative
+        &:hover
+            color: $white
+            background-color: $green
+            box-shadow: -5px 5px 10px 5px rgba($green-light, 0.25)
+            cursor: pointer
+            &::after
+                transition: $transition
+                background: url('../img/plus_white.png') center / contain no-repeat
+
+        &::after
+            content: ''
+            display: block
+            position: absolute
+            top: 50%
+            right: 2.5%
+            transform: translate(-5%, -50%)
+            border-radius: 50%
+            width: 2vw
+            height: 2vw
+            transition: all 1s ease-in-out
+            background: url('../img/plus.png') center / contain no-repeat
+
+    &__description
+        font-size: 1vw
+        display: flex
+        text-align: justify
+        padding: 2.5%
+        line-height: 1.5vw
+        display: none
+
+.btn--order
+    display: flex
+    justify-content: center
+    text-align: center
+    align-items: center
+    width: 50%
+    margin: 15% auto
+    padding: 1vw 0.5vw
+    font-size: 1vw
+    border: none
+    text-transform: uppercase
+    font-weight: 600
+    color: $white
+    background-color: $green-light
+
+    border-top-left-radius: 20px
+    border-bottom-right-radius: 20px
+    border-bottom-left-radius: 20px

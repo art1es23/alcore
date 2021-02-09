@@ -1,0 +1,52 @@
+@import "./src/sass/helpers/var"
+
+.advantage
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &--wrapper
+        display: grid
+        grid-template-rows: repeat(3, 1fr)
+        width: 65%
+        grid-gap: 2.5vw
+        justify-content: space-between
+        align-items: center
+
+    &__item
+        display: flex
+        width: 100%
+        justify-content: center
+        align-items: center
+        transition: $transition
+
+        &:hover
+            & .advantage__icon
+                background-color: $black
+
+            & .advantage__description
+                border: 1px solid $green
+                box-shadow: -10px 10px 15px 2.5px rgba($green-light, 0.15)
+
+    &__icon
+        width: 8.5vw
+        background-color: $green
+        margin-right: auto
+        transition: $transition
+        border-radius: 50%
+
+    &__description
+        width: 80%
+        border-radius: 30px
+        padding: 2.5% 5%
+        box-shadow: -10px 10px 15px 2.5px rgba($black, 0.15)
+        display: flex
+        justify-content: space-between
+        align-items: center
+        line-height: 1.5vw
+        font-size: 1vw
+        color: $green
+        text-align: justify
+        transition: $transition
+        background-color: $white

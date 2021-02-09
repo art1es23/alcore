@@ -15,6 +15,7 @@ body
   width: 100%
   overflow-x: hidden
   text-transform: uppercase
+  color: $black
 
 section
   width: 100%
@@ -25,6 +26,11 @@ a
 
 ul
   list-style: none
+
+b
+  color: $green-light
+  font-weight: 600
+  margin-left: 0.25vw
 
 .img--wrapper
   height: 100%
@@ -84,7 +90,8 @@ ul
   font-size: 1.25vw
 
 .scroll--hidden
-  overflow: hidden
+  overflow-y: hidden
+  overflow-x: hidden
 
 .scroll-up
   position: absolute
@@ -112,10 +119,10 @@ ul
     z-index: 10
     background-position: center
 
-// .fade
-//   animation: fade 1s ease
+.fade
+  animation: fade 1s ease
 
-// .show
-//   display: flex
-// .hide
-//   display: none
+.show
+  display: flex
+.hide
+  display: none

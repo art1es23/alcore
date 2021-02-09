@@ -1,77 +1,89 @@
-class Menu {
-    constructor() {
-        this.header = document.querySelector('.header');
-        this.menuToogle = this.header.querySelector('.menu');
-        this.menuNav = this.header.querySelector('.navigation--wrapper');
-        this.slider = document.querySelector('.slider');
-        this.body = document.body;
+const toggleMenu = (container) => {
+    class Menu {
+        constructor() {
+            this.header = document.querySelector('.header');
+            this.menuToogle = document.querySelector('.menu');
+            this.menuNav = document.querySelector('.navigation--wrapper');
+            this.menuInner = document.querySelector('.navigation');
+            this.body = document.querySelector('body');
 
-        this.toggleNavigation();
-        this.scrollDefault();
-    }
-    // toggle() {
+            this.init();
+        }
 
-    //     let toggleBtn = this.menuToogle;
-    //     let toggleMenu = this.menuNav;
+        init() {
+            this.menuToogle.addEventListener('click', (e) => {
+                e.preventDefault();
 
-    //     console.log('asdasdasds');
-    //     toggleMenu.classList.add('show');
-    //     toggleBtn.classList.add('btn--swap');
-    // }
+                this.menuNav.classList.toggle('navigation--show');
+                this.menuToogle.classList.toggle('menu--toggle');
+                this.header.classList.toggle('header--size');
+                this.menuInner.classList.toggle('navigation--align');
+                console.log(document.body);
+                this.body.classList.toggle('scroll--hidden');
+            });
 
-    toggleNavigation() {
-        this.menuToogle.addEventListener('click', (e) => {
-            e.preventDefault();
-            let toggleBtn = this.menuToogle;
-            let toggleMenu = this.menuNav;
-            let toggleHeader = this.header;
-            let slider = this.slider;
-            let body = this.body;
+            window.addEventListener('scroll', (e) => {
+                e.preventDefault();
+                let scrollPage = window.pageYOffset;
 
-            console.log(body);
+                this.header.classList.remove('header--position', 'header--size');
 
-            // if (toggleHeader.classList.contains('header--size')) {
-            //     toggleMenu.classList.remove('navigation--show');
-            //     toggleBtn.classList.remove('btn--swap');
-            //     toggleHeader.classList.remove('header--size');
-            //     slider.classList.remove('slider--size');
-            //     document.querySelector('.navigation').style.alignItems = 'center';
-            //     body.classList.remove('scroll--hidden');
-            // }
+                if (scrollPage > 0) {
+                    this.header.classList.add('header--position');
+                } else {
+                    this.menuNav.classList.remove('navigation--show');
+                    this.menuToogle.classList.remove('menu--toggle');
+                }
 
-            toggleMenu.classList.toggle('navigation--show');
-            toggleBtn.classList.toggle('menu--toggle');
-            toggleHeader.classList.toggle('header--size');
-            slider.classList.toggle('slider--size');
-            document.querySelector('.navigation').style.alignItems = 'baseline';
-            body.classList.toggle('scroll--hidden');
-        });
+            });
+
+            console.log('SOME FUNCTION INIT');
+        }
     }
 
-    scrollDefault() {
-        let toggleBtn = this.menuToogle;
-        let toggleHeader = this.header;
-        let toggleMenu = this.menuNav;
-        // let xHeader = toggleHeader.clientHeight;
+    let togglemenu = new Menu();
+};
 
-        window.addEventListener('scroll', (e) => {
-            e.preventDefault();
-            let scrollPage = window.pageYOffset;
+export default toggleMenu;
 
-            toggleHeader.classList.remove('header--position', 'header--size');
+// const Menu = {
 
-            if (scrollPage > 0) {
-                toggleHeader.classList.add('header--position');
-            } else {
-                toggleMenu.classList.remove('navigation--show');
-                toggleBtn.classList.remove('menu--toggle');
-            }
+//     header: document.querySelector('.header'),
+//     menuToogle: document.querySelector('.menu'),
+//     menuNav: document.querySelector('.navigation--wrapper'),
+//     menuInner: document.querySelector('.navigation'),
+//     slider: document.querySelector('.slider'),
 
-        });
-    }
+//     init: function () {
+//         this.menuToogle.addEventListener('click', (e) => {
+//             e.preventDefault();
 
+//             this.menuNav.classList.toggle('navigation--show');
+//             this.menuToogle.classList.toggle('menu--toggle');
+//             this.header.classList.toggle('header--size');
+//             // this.slider.classList.toggle('slider--size');
+//             this.menuInner.classList.toggle('navigation--align');
+//             document.body.classList.toggle('scroll--hidden');
+//         });
 
-}
+//         window.addEventListener('scroll', (e) => {
+//             e.preventDefault();
+//             let scrollPage = window.pageYOffset;
 
+//             this.header.classList.remove('header--position', 'header--size');
 
-export default Menu;
+//             if (scrollPage > 0) {
+//                 this.header.classList.add('header--position');
+//             } else {
+//                 this.menuNav.classList.remove('navigation--show');
+//                 this.menuToogle.classList.remove('menu--toggle');
+//             }
+
+//         });
+
+//         console.log('SOME FUNCTION INIT');
+//     }
+
+// };
+
+// Menu.init();

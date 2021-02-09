@@ -48,11 +48,11 @@
         background-position: center center
         background-size: auto 5rem
     &__arrow_prev
-        background-image: url('../img/arrow__left-white.png')
+        background-image: url('../img/sprite.svg#left')
         left: 1rem
 
     &__arrow_next
-        background-image: url('../img/arrow__right-white.png')
+        background-image: url('../img/sprite.svg#right')
         right: 1rem
 
     &--size
@@ -251,7 +251,7 @@
         transition: all 0.4s ease
 
         &:hover
-            box-shadow: 0 0 20px 5px rgba(#d43325, 1)
+            box-shadow: 0 0 20px 2.5px rgba(#d43325, 1)
 
     &__item .more__element .content .link .fill
         position: absolute
@@ -324,7 +324,7 @@
 
 @media screen and ( max-width: 768px)
     .slider
-        height: 50vh
+        height: 60vh
     .slider-list
         &__item .more__element .content
             padding: 10% 7.5%
@@ -333,8 +333,11 @@
                 max-width: 40%
                 font-size: 1.75vw
                 line-height: 2.25vw
-        &__item .more__element .content .link a
-            font-size: 1.75vw
+        &__item .more__element .content .link
+            width: 7.5rem
+            height: 7.5rem
+            & a
+                font-size: 1.75vw
 
 @media screen and ( max-width: 480px)
     .slider
