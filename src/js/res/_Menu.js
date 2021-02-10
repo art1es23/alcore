@@ -17,8 +17,10 @@ const toggleMenu = (container) => {
                 this.menuNav.classList.toggle('navigation--show');
                 this.menuToogle.classList.toggle('menu--toggle');
                 this.header.classList.toggle('header--size');
-                this.menuInner.classList.toggle('navigation--align');
-                console.log(document.body);
+                if (this.menuInner.classList.contains('navigation--align')) {
+                    this.menuInner.classList.remove('navigation--align');
+                }
+                this.menuInner.classList.add('navigation--align');
                 this.body.classList.toggle('scroll--hidden');
             });
 
@@ -30,9 +32,15 @@ const toggleMenu = (container) => {
 
                 if (scrollPage > 0) {
                     this.header.classList.add('header--position');
+                    this.menuInner.classList.remove('navigation--align');
+
+                    if (this.menuNav.classList.contains('navigation--show')) {
+                        this.menuInner.classList.add('navigation--align');
+                    }
                 } else {
                     this.menuNav.classList.remove('navigation--show');
                     this.menuToogle.classList.remove('menu--toggle');
+                    this.menuInner.classList.remove('navigation--align');
                 }
 
             });

@@ -25,15 +25,15 @@ barba.init({
                 pageHome(data.next.container);
             }
         },
-        {
-            namespace: 'about',
-            beforeEnter(data) {
-                pageSlider(data.next.container);
-            },
-            beforeOnce(data) {
-                pageSlider(data.next.container);
-            }
-        },
+        // {
+        //     namespace: 'about',
+        //     beforeEnter(data) {
+        //         pageSlider(data.next.container);
+        //     },
+        //     beforeOnce(data) {
+        //         pageSlider(data.next.container);
+        //     }
+        // },
         {
             namespace: 'blog',
             beforeEnter(data) {

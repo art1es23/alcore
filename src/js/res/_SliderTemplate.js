@@ -17,7 +17,6 @@ const pageSlider = (container) => {
             this.slideIndex = 1;
             this.slideOffset = 0;
 
-            this.showCounter();
             this.init();
         }
 
@@ -32,6 +31,7 @@ const pageSlider = (container) => {
         }
 
         init() {
+            this.showCounter();
             this.sliderInner.style.width = 100 * this.sliderListItems.length + '%';
             this.sliderInner.style.display = 'flex';
             this.sliderInner.style.transition = 'all 0.5s ease';
