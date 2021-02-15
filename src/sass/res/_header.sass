@@ -15,11 +15,20 @@
   transition: all 0.3s ease
   overflow: hidden
   animation: hideHeader 2s ease forwards
-  clip-path: circle(8% at 12% 40%)
+  // clip-path: circle(8% at 12% 40%)
   background-color: $black
+  // background-color: transparent
+  clip-path: url(#mask-circle)
 
-  // clip-path: circle(10.5rem at 15%)
-  // clip-path: circle(10% at 15.5%)
+  &--mask
+    position: absolute
+    top: 50%
+    transform: translate(-50%, -50%)
+    left: 50%
+
+    & .circle--logo
+      width: 5vw
+      height: 5vw
 
   img
     &:nth-child(even)
@@ -30,23 +39,22 @@
       height: 225%
       transform: translateY(65%)
 
-  &--size
-    animation: showHeader 2s ease forwards
-    // align-items: baseline
-
-    .logo
-      &__link
-        transition: $transition
-        transform: translateY(0)
-        min-height: 5vw
-
-      &__caption
-        color: $black
-        font-size: 1.5vw
-
   &--position
-    animation: showHeader 2s ease forwards
+    animation: showHeader 1.5s ease forwards
+
+    & .menu
+      span
+        background-color: $black
+        &::before,
+        &::after
+          background-color: $black
+
+    & .header--mask
+      transform: scale(2)
     & .logo
+      border-radius: none
+      // transform: translateY(0)
+      // background-color: transparent
       &__link
         transition: $transition
         transform: translateY(0)
@@ -55,6 +63,43 @@
       &__caption
         color: $black
         font-size: 1.5vw
+
+    & .chooseLanguage__item
+      color: $black
+      &:nth-child(2n)
+        &::before,
+        &::after
+          background-color: $black
+
+  &--size
+    animation: showHeader 1.5s ease forwards
+    // align-items: baseline
+    & .menu
+      span
+        background-color: transparent
+        &::before,
+        &::after
+          background-color: $black
+
+    & .logo
+      border-radius: none
+      // background-color: transparent
+      transform: translateY(0)
+      &__link
+        transition: $transition
+        // transform: translateY(0)
+        min-height: 5vw
+
+      &__caption
+        color: $black
+        font-size: 1.5vw
+
+    & .chooseLanguage__item
+      color: $black
+      &:nth-child(2n)
+        &::before,
+        &::after
+          background-color: $black
 
 @media screen and (max-width: 1366px)
   .header
