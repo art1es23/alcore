@@ -9,11 +9,38 @@ toggleMenu();
 barba.hooks.beforeEnter(data => {
     window.scrollTo(0, 0);
     // Menu.init();
+    let target = data.next.container;
+    const scrollUp = () => {
+
+        target.querySelector('.scroll-up__link').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('.main-content').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+    };
+    scrollUp();
+
 });
 
 barba.hooks.once(data => {
     window.scrollTo(0, 0);
     // Menu.init();
+    let target = data.next.container;
+    const scrollUp = () => {
+
+        target.querySelector('.scroll-up__link').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('.main-content').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+    };
+    scrollUp();
 });
 
 barba.init({

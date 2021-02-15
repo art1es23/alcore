@@ -2,7 +2,13 @@
 require('require-dir')('./gulp', { recurse: true });*/
 
 const gulp = require('gulp');
-const {parallel, series, watch, src, dest} = require('gulp');
+const {
+    parallel,
+    series,
+    watch,
+    src,
+    dest
+} = require('gulp');
 /*
 const cfg = require('../package.json').config;
 */
@@ -26,7 +32,7 @@ const tinyPNG = require('gulp-tinypng-compress');
 
 sass.compiler = require('node-sass');
 
-const  styles = () => {
+const styles = () => {
     return gulp.src('./src/sass/**/*.{scss,sass}')
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -49,7 +55,7 @@ const  styles = () => {
         .pipe(browserSync.stream());
 };
 
-const htmlInclude =  () => {
+const htmlInclude = () => {
     return src(['./src/*.html'])
         .pipe(fileInclude({
             prefix: '@',
@@ -151,7 +157,7 @@ const fontsStyle = (done) => {
                 let weight = checkWeight(fontname);
 
                 if (c_fontname != fontname) {
-                    fs.appendFile(srcFonts, '@include font-face("' + font + '", "' + fontname + '", ' + weight +')\r\n', cb);
+                    fs.appendFile(srcFonts, '@include font-face("' + font + '", "' + fontname + '", ' + weight + ')\r\n', cb);
                 }
                 c_fontname = fontname;
             }
@@ -172,18 +178,16 @@ const scripts = () => {
                 filename: 'main.js',
             },
             module: {
-                rules: [
-                    {
-                        test: /\.m?js$/,
-                        exclude: /(node_modules|bower_components)/,
-                        use: {
-                            loader: 'babel-loader',
-                            options: {
-                                presets: ['@babel/preset-env']
-                            }
+                rules: [{
+                    test: /\.m?js$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
                         }
                     }
-                ]
+                }]
             }
         }))
         .on('error', function (err) {
@@ -247,25 +251,23 @@ const scriptsProduction = () => {
                 filename: 'main.js',
             },
             module: {
-                rules: [
-                    {
-                        test: /\.m?js$/,
-                        exclude: /(node_modules|bower_components)/,
-                        use: {
-                            loader: 'babel-loader',
-                            options: {
-                                presets: ['@babel/preset-env']
-                            }
+                rules: [{
+                    test: /\.m?js$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
                         }
                     }
-                ]
+                }]
             }
         }))
         .pipe(uglify().on("error", notify.onError()))
         .pipe(dest('./build/js/'));
 };
 
-const  stylesProduction = () => {
+const stylesProduction = () => {
     return gulp.src('./src/sass/**/*.{scss,sass}')
         .pipe(sass({
             errorLogToConsole: true,
