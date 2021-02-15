@@ -2,6 +2,7 @@ import barba from '@barba/core';
 import pageHome from './res/_Slider';
 import pageSlider from './res/_SliderTemplate';
 import toggleMenu from './res/_Menu';
+import pageSliderAbout from './res/_SliderAbout';
 // ===== init ======
 toggleMenu();
 
@@ -25,15 +26,15 @@ barba.init({
                 pageHome(data.next.container);
             }
         },
-        // {
-        //     namespace: 'about',
-        //     beforeEnter(data) {
-        //         pageSlider(data.next.container);
-        //     },
-        //     beforeOnce(data) {
-        //         pageSlider(data.next.container);
-        //     }
-        // },
+        {
+            namespace: 'about',
+            beforeEnter(data) {
+                pageSliderAbout(data.next.container);
+            },
+            beforeOnce(data) {
+                pageSliderAbout(data.next.container);
+            }
+        },
         {
             namespace: 'blog',
             beforeEnter(data) {

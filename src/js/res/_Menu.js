@@ -33,6 +33,8 @@ const toggleMenu = (container) => {
                 if (scrollPage > 0) {
                     this.header.classList.add('header--position');
                     this.menuInner.classList.remove('navigation--align');
+                    this.menuNav.classList.remove('navigation--show');
+                    this.menuToogle.classList.remove('menu--toggle');
 
                     if (this.menuNav.classList.contains('navigation--show')) {
                         this.menuInner.classList.add('navigation--align');

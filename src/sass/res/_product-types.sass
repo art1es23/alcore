@@ -103,8 +103,7 @@
         display: flex
         justify-content: center
         align-items: center
-        transform: scale(0.5)
-
+        padding: 25%
     &__caption
         display: flex
         width: 100%
@@ -125,6 +124,7 @@
     &__legend
         font-size: 1vw
         display: flex
+        line-height: 1.5vw
         justify-content: center
         text-align: center
         align-items: center
@@ -134,7 +134,7 @@
 .properties-list
     display: flex
     width: 100%
-    justify-content: space-between
+    justify-content: space-evenly
     align-items: center
     padding: 5% 0
 
@@ -143,6 +143,8 @@
         position: relative
         font-size: 0.9vw
         padding-left: 2vw
+        text-align: center
+        justify-content: center
 
         &::before
             display: block
@@ -160,3 +162,84 @@
         &:hover
             &::before
                 border: 3px solid $green-light
+
+@media screen and ( max-width: 768px)
+    .product-types
+        &--wrapper
+            width: 85%
+        &__title
+            font-size: 3.25vw
+        &__description
+            font-size: 2vw
+            line-height: 3vw
+
+    .type
+        &__diagram
+            width: 20vw
+            height: 20vw
+            font-size: 1.5vw
+
+        &__caption
+            font-size: 1.75vw
+            line-height: 3vw
+
+    .pros
+        &__caption
+            font-size: 1.75vw
+            line-height: 3vw
+
+    .properties
+        width: 85%
+        &__legend
+            font-size: 2.25vw
+            line-height: 3.25vw
+
+    .properties-list
+        &__item
+            font-size: 1.75vw
+            &::before
+                width: 1.5vw
+
+@media screen and ( max-width: 480px)
+    .product-types
+        &--wrapper
+            width: 90%
+        &__title
+            font-size: 5.5vw
+        &__description
+            font-size: 3vw
+            line-height: 4vw
+
+    .type
+        &__diagram
+            width: 27.5vw
+            height: 27.5vw
+            font-size: 2.75vw
+
+        &__caption
+            font-size: 2.5vw
+            text-align: center
+            line-height: 3.5vw
+
+    .pros
+        padding-bottom: 7.5vw
+        &__caption
+            font-size: 2.5vw
+            line-height: 3.5vw
+
+    .properties
+        width: 90%
+        &__legend
+            font-size: 2.75vw
+            line-height: 3.5vw
+
+    .properties-list
+        flex-direction: column
+        align-items: flex-start
+        padding: 5%
+        &__item
+            padding-left: 5vw
+            margin: 1.5vw 0
+            font-size: 2.5vw
+            &::before
+                width: 2vw

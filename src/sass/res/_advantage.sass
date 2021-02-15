@@ -31,6 +31,7 @@
 
     &__icon
         width: 8.5vw
+        height: 8.5vw
         background-color: $green
         margin-right: auto
         transition: $transition
@@ -38,8 +39,11 @@
 
     &__description
         width: 80%
-        border-radius: 30px
         padding: 2.5% 5%
+        border-top-left-radius: 25px
+        border-bottom-left-radius: 25px
+        border-bottom-right-radius: 25px
+
         box-shadow: -10px 10px 15px 2.5px rgba($black, 0.15)
         display: flex
         justify-content: space-between
@@ -50,3 +54,29 @@
         text-align: justify
         transition: $transition
         background-color: $white
+
+@media screen and ( max-width: 768px)
+    .advantage
+        &--wrapper
+            width: 85%
+        &__description
+            width: 85%
+            font-size: 2vw
+            line-height: 3vw
+
+@media screen and ( max-width: 480px)
+    .advantage
+        &--wrapper
+            grid-gap: 7.5vw
+            width: 90%
+        &__icon
+            width: 10vw
+            height: 10vw
+        &__description
+            width: 85%
+            font-size: 2.5vw
+            line-height: 3.5vw
+            padding: 5%
+            border-top-left-radius: 15px
+            border-bottom-left-radius: 15px
+            border-bottom-right-radius: 15px

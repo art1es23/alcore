@@ -3,7 +3,9 @@
 
 .products
     width: 100%
-    min-height: 100vh
+    display: flex
+    min-height: 80vh
+    justify-content: center
     &--wrapper
         width: 65%
         margin: 10% auto
@@ -72,7 +74,7 @@
             cursor: pointer
             box-shadow: -10px 10px 20px 2.5px rgba($green-light, 0.5)
             &::after
-                animation: showPulse 2.5s ease-in-out forwards infinite
+                animation: showPulse 3s ease-in-out forwards infinite
                 transition: $transition
                 opacity: 1
                 visibility: visible
@@ -84,3 +86,32 @@
         justify-content: center
         align-items: center
         font-weight: 600
+
+@media screen and ( max-width: 1224px)
+    .products
+        &--wrapper
+            margin: 15% auto
+@media screen and ( max-width: 768px)
+    .products
+        &--wrapper
+            width: 70%
+            margin: 17.5% auto
+            grid-template-columns: repeat(2, auto)
+
+    .product
+        &__title
+            font-size: 2.5vw
+
+@media screen and ( max-width: 480px)
+    .products
+        min-height: 100vh
+        &--wrapper
+            justify-content: center
+            width: 95%
+            margin: 27.5% auto
+            grid-template-columns: repeat(2, auto)
+
+    .product
+        &__title
+            padding: 2.5vw 0
+            font-size: 3.5vw

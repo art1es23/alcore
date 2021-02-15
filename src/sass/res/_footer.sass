@@ -24,7 +24,7 @@
   &__item
     width: calc( 100% / 3 )
     display: flex
-    min-height: 15rem
+    min-height: 10vw
     height: auto
     // border: 1px solid $white
     padding: 1.5vw 2.5vw
@@ -45,6 +45,9 @@
       height: 100%
       width: 100%
       border: solid 1px $green
+      border-top-left-radius: 20px
+      border-bottom-left-radius: 20px
+      border-bottom-right-radius: 20px
 
     img
       position: absolute
@@ -79,7 +82,7 @@
   .menu-links
     &__item
       padding: 2.5vw
-      min-height: 12.5rem
+      min-height: 12.5vw
 
       p
         font-size: 0.8vw
@@ -98,4 +101,66 @@
 @media screen and ( max-width: 1024px)
   .menu-links
     &__item
-      min-height: 10rem
+      min-height: 15vw
+      padding: 3.5% 2.5%
+      p
+        font-size: 1vw
+        line-height: 1.5vw
+
+  .phone-list
+    h3
+      font-size: 1vw
+      line-height: 1.5vw
+    a
+      font-size: 1vw
+      line-height: 1.5vw
+
+@media screen and ( max-width: 768px)
+  .menu-links
+    flex-direction: column
+
+    &__item
+      min-height: 20vw
+      width: 75%
+      margin: 5vw auto
+      padding: 5% 7.5%
+
+      p
+        font-size: 1.75vw
+        line-height: 2.25vw
+  .phone-list
+
+    h3
+      font-size: 1.75vw
+      line-height: 2.25vw
+    a
+      font-size: 1.75vw
+      line-height: 2.25vw
+    &:nth-child(3n)
+      text-align: right
+      justify-content: flex-end
+      align-items: flex-end
+
+@media screen and ( max-width: 480px)
+  .menu-links
+    &__item
+      min-height: 20vw
+      width: 100%
+      margin: 7.5vw auto
+      padding: 10% 5%
+
+      p
+        font-size: 3vw
+        line-height: 3.5vw
+  .phone-list
+
+    h3
+      font-size: 2.9vw
+      line-height: 3.75vw
+    a
+      font-size: 2.9vw
+      line-height: 3.75vw
+    &:nth-child(3n)
+      text-align: right
+      justify-content: flex-end
+      align-items: flex-end

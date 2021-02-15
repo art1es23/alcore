@@ -1,4 +1,5 @@
 @import "./src/sass/helpers/var"
+@import "./src/sass/helpers/animations"
 
 .header
   width: 100%
@@ -14,6 +15,9 @@
   transition: all 0.3s ease
   overflow: hidden
   animation: hideHeader 2s ease forwards
+  clip-path: circle(8% at 12% 40%)
+  background-color: $black
+
   // clip-path: circle(10.5rem at 15%)
   // clip-path: circle(10% at 15.5%)
 
@@ -34,6 +38,7 @@
       &__link
         transition: $transition
         transform: translateY(0)
+        min-height: 5vw
 
       &__caption
         color: $black
@@ -43,32 +48,13 @@
     animation: showHeader 2s ease forwards
     & .logo
       &__link
-        min-height: 10vh
         transition: $transition
         transform: translateY(0)
+        min-height: 5vw
 
       &__caption
         color: $black
         font-size: 1.5vw
-
-@keyframes showHeader
-  0%
-    transition: all 2s ease
-    clip-path: circle(15% at 15% 50%)
-    background-color: $black
-  100%
-    clip-path: circle(200% at 15% 50%)
-    background-color: $white
-
-@keyframes hideHeader
-  0%
-    transition: all 2s ease
-    background-color: $white
-    clip-path: circle(200% at 15% 50%)
-
-  100%
-    clip-path: circle(7.5% at 12.5% 40%)
-    background-color: $black
 
 @media screen and (max-width: 1366px)
   .header
@@ -76,17 +62,127 @@
 
 @media screen and (max-width: 1224px)
   .header
-    justify-content: space-between
-    transition: $transition
-    &--direction
-      position: relative
-      transition: $transition
-      background-color: rgba($light-olive, 1)
-      padding: 5% 0
-      flex-direction: column
-      .logo
-        width: 40%
+    &--size
+
+      & .logo
+        &__caption
+          font-size: 2vw
+
+    &--position
+      & .logo
+        &__link
+          padding: 2.5vw 0
+        &__icon
+          transform: scale(1.35)
+        &__caption
+          font-size: 2vw
+          padding: 0.5vw 0
+
+@media screen and (max-width: 1024px)
+  .header
+    &--size
+      & .logo
+        &__icon
+          transform: scale(1.5)
+        &__caption
+          font-size: 2vw
+
+    &--position
+      & .logo
+        &__link
+          padding: 1.5vw 0
+        &__icon
+          transform: scale(1.5)
+        &__caption
+          font-size: 2vw
+          padding: 0.25vw 0
 
 @media screen and (max-width: 768px)
   .header
-    min-height: 10vh
+    clip-path: circle(12% at 14% 42.5%)
+    &--size
+      min-height: 100vh
+      align-items: center
+      justify-content: space-around
+      flex-direction: column
+
+      & .logo
+        width: 15vw
+        &__link
+          min-height: 15vw
+        &__caption
+          font-size: 3vw
+
+      & .navigation
+        min-height: 100%
+        flex-direction: column
+        flex-grow: 2
+        &--align
+          align-items: center
+          justify-content: space-around
+        &--wrapper
+          flex-direction: column
+          align-items: center
+          padding: 0
+        &--show
+          margin: 0
+        &__item
+          text-align: center
+          align-items: center
+        &__link
+          text-align: center
+          justify-content: center
+          font-size: 3.5vw
+          padding: 5vw 2.5vw
+
+        & .chooseLanguage
+          display: none
+
+      & .submenu
+        display: none
+        width: 100%
+        align-self: center
+        &__link
+          text-align: center
+          justify-content: center
+          font-size: 2.5vw
+          padding: 2.5vw
+
+    &--position
+      & .logo
+        &__link
+          min-height: 15vw
+        &__caption
+          padding: 1vw 0
+          font-size: 3vw
+
+@media screen and (max-width: 480px)
+  .header
+    padding: 5%
+    clip-path: circle(17.5% at 15% 42.5%)
+
+    &--size
+      padding: 20% 0
+      & .logo
+        width: 30vw
+        &__caption
+          font-size: 5vw
+
+      & .navigation
+        &__link
+          font-size: 5vw
+          padding: 5vw 3.5vw
+
+        & .chooseLanguage
+          display: none
+
+      & .submenu
+        &__link
+          font-size: 5vw
+          padding: 3.5vw
+
+    &--position
+      & .logo
+        &__caption
+          font-size: 5vw
+          padding: 2vw 0

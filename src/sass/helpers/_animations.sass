@@ -76,9 +76,11 @@
 
 @keyframes pulse
   0%
-    transform: scale(1.1)
-  100%
+    transform: scale(1)
+  50%
     transform: scale(1.25)
+  100%
+    transform: scale(1)
 
 @keyframes showPulse
   0%
@@ -342,3 +344,44 @@
   100%
     opacity: 0
     visibility: hidden
+
+@keyframes showHeader
+  // 0%
+  //   transition: all 2s ease
+  //   clip-path: circle(15% at 15% 50%)
+  //   background-color: $black
+
+  100%
+    clip-path: circle(200% at 15% 50%)
+    background-color: $white
+
+@keyframes hideHeader
+  0%
+    transition: all 2s ease
+    background-color: $white
+    clip-path: circle(200% at 15% 50%)
+
+  // 100%
+  //   clip-path: circle(8% at 12% 40%)
+  //   background-color: $black
+
+// @media screen and ( max-width: 768px)
+//   @keyframes showHeader
+//     0%
+//       transition: all 2s ease
+//       clip-path: circle(15% at 16.5% 50%)
+//       background-color: $black
+
+//     100%
+//       clip-path: circle(200% at 15% 50%)
+//       background-color: $white
+
+//   @keyframes hideHeader
+//     0%
+//       transition: all 2s ease
+//       background-color: $white
+//       clip-path: circle(200% at 15% 50%)
+
+//     100%
+//       clip-path: circle(15% at 16.5% 40%)
+//       background-color: $black

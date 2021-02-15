@@ -6,6 +6,7 @@
   justify-content: flex-end
   align-items: center
   position: relative
+  height: 100%
   clip-path: circle(200% at 90%)
 
   &--align
@@ -119,9 +120,9 @@
 .menu
   display: flex
   position: relative
-  width: 3rem
-  height: 3rem
-  padding: 0.35rem 0.15rem
+  width: 2.5vw
+  height: 2.5vw
+  padding: 0.35vw 0.15vw
   justify-content: center
   align-items: center
 
@@ -171,3 +172,41 @@
 
       &:after
         transform: rotate(-45deg)
+
+@media screen and ( max-width: 1366px)
+  .menu
+    width: 3vw
+
+@media screen and ( max-width: 1224px)
+  .menu
+    width: 3.5vw
+@media screen and ( max-width: 1024px)
+  .navigation
+    &__link
+      font-size: 1.25vw
+
+  .submenu
+    &__link
+      font-size: 1.25vw
+
+  .menu
+    width: 4.5vw
+
+@media screen and ( max-width: 768px)
+  .navigation
+    &__item
+      &:hover,
+      &:focus,
+      &:active
+        & > ul
+          display: none
+
+  .menu
+    width: 6vw
+
+  .submenu
+    display: none
+
+@media screen and ( max-width: 480px)
+  .menu
+    width: 10vw

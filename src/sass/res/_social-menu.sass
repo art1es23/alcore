@@ -6,7 +6,7 @@
   justify-content: space-between
 
   &__item
-    margin-right: 1.5rem
+    margin-right: 1.5vw
     display: flex
     justify-content: center
     width: 3.5vw
@@ -20,10 +20,7 @@
     display: flex
     justify-content: center
     align-items: flex-start
-    background:
-      repeat: no-repeat
-      position: center
-      size: contain
+    background: center / contain no-repeat
     transition: $transition
 
     &:hover,
@@ -33,20 +30,20 @@
 
 .facebook
   background:
-    image: url("../img/sprite.svg#facebook")
+  image: url("../img/sprite.svg#facebook")
 
 .reddit
   background:
-    image: url("../img/sprite.svg#reddit")
+  image: url("../img/sprite.svg#reddit")
 
 .instagram
   background:
-    image: url("../img/sprite.svg#instagram")
+  image: url("../img/sprite.svg#instagram")
 
 @media screen and (max-width: 1600px)
   .social-menu
     &__item
-      margin-right: 1rem
+      margin-right: 1vw
 
 @media screen and (max-width: 1366px)
   .social-menu
@@ -67,5 +64,3 @@
     &__item
       width: 12.5vw
       height: 12.5vw
-
-

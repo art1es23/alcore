@@ -8,7 +8,7 @@
     height: 100vh
     overflow: hidden
     background-image: url('../img/slider_bg.jpg')
-    background-attachment: fixed
+    // background-attachment: fixed
     background-position: center
     background-size: cover
     background-repeat: no-repeat
@@ -16,7 +16,7 @@
     &__nav-bar
         position: absolute
         width: auto
-        min-height: 5rem
+        min-height: 5vw
         bottom: 0
         left: 50%
         transform: translateX( -50% )
@@ -30,8 +30,8 @@
         position: absolute
         top: 50%
         transform: translateY( -50% )
-        width: 5rem
-        height: 5rem
+        width: 5vw
+        height: 5vw
         transition: 0.2s
         cursor: pointer
         z-index: 100
@@ -42,18 +42,18 @@
 
     &__arrow_prev,
     &__arrow_next
-        width: 5rem
-        height: 5rem
+        width: 5vw
+        height: 5vw
         background-repeat: no-repeat
         background-position: center center
-        background-size: auto 5rem
+        background-size: auto 100%
     &__arrow_prev
         background-image: url('../img/sprite.svg#left')
-        left: 1rem
+        left: 1vw
 
     &__arrow_next
         background-image: url('../img/sprite.svg#right')
-        right: 1rem
+        right: 1vw
 
     &--size
         height: 100vh
@@ -63,8 +63,8 @@
     display: inline-block
     vertical-align: middle
     opacity: 0.5
-    width: 2.5rem
-    height: 2.5rem
+    width: 2.5vw
+    height: 2.5vw
     transition: 0.2s
     cursor: pointer
     background-image: url('../img/dot-black.png')
@@ -72,6 +72,7 @@
     background-position: center center
     background-size: 75% 75%
     z-index: 3
+    display: none
 
     &:hover
         opacity: 0.8
@@ -97,8 +98,7 @@
         position: absolute
         top: 0
         left: 0
-        -webkit-transform: translateX(100%)
-        transform: translateX(100%)
+        transform: translateX(100%) translateY(-50%)
         width: 100%
         height: 100%
         background-repeat: no-repeat
@@ -147,7 +147,7 @@
     &__item .main__element img
         position: relative
         display: block
-        width: 100%
+        width: 40%
         max-width: 100%
         height: 100%
         top: 50%
@@ -218,7 +218,7 @@
         right: 0
         height: auto
         margin: 0 auto
-        padding: 5% 2rem
+        padding: 5% 2vw
         color: #2e3131
         text-align: left
 
@@ -235,15 +235,15 @@
         max-width: 20%
         font-size: 1vw
         line-height: 1.25vw
-        padding: 1rem 0
+        padding: 1vw 0
 
     &__item .more__element .content .link
         position: relative
         display: flex
         justify-content: center
         align-items: center
-        width: 10rem
-        height: 10rem
+        width: 10vw
+        height: 10vw
         border-radius: 50%
         font-size: 1vw
         line-height: 24px
@@ -255,7 +255,7 @@
 
     &__item .more__element .content .link .fill
         position: absolute
-        background-image: linear-gradient(to right, #d43325, #f36e67)
+        background-color: $black
         background-size: 150% 150%
         height: 100%
         width: 100%
@@ -266,9 +266,6 @@
         -webkit-animation: gradient 3s ease infinite
         -moz-animation: gradient 3s ease infinite
         animation: gradient 3s ease infinite
-
-    &__item .more__element .content .link .fill.fill-dark
-        background-image: linear-gradient(to right, #252228, #848f9e)
 
     &__item .more__element .content .link a
         position: absolute
@@ -297,7 +294,6 @@
                 color: black
 
     &__item_active
-        -webkit-transform: translateX(0)
         transform: translateX(0)
         z-index: 2
 
@@ -325,6 +321,11 @@
 @media screen and ( max-width: 768px)
     .slider
         height: 60vh
+
+        &__arrow_next,
+        &__arrow_prev
+            width: 7.5vw
+            height: 7.5vw
     .slider-list
         &__item .more__element .content
             padding: 10% 7.5%
@@ -334,47 +335,53 @@
                 font-size: 1.75vw
                 line-height: 2.25vw
         &__item .more__element .content .link
-            width: 7.5rem
-            height: 7.5rem
+            width: 15vw
+            height: 15vw
             & a
                 font-size: 1.75vw
 
 @media screen and ( max-width: 480px)
     .slider
-        height: 100vh
+        height: 80vh
         &__nav-bar
-            min-height: 3.5rem
+            min-height: 3.5vw
 
         &__arrow_prev,
         &__arrow_next
-            width: 2.5rem
-            height: 2.5rem
-            background-size: auto 2.5rem
+            height: 12.5vw
+            width: 12.5vw
 
     .slider-list
         &__item
             & .more__element
                 & .content
                     max-width: 100%
-                    flex-direction: column
-                    padding: 15% 7.5%
-                    align-items: center
-                    justify-content: flex-end
+                    padding: 7.5% 5%
+                    align-items: flex-end
+                    justify-content: space-between
 
                     & .link
-                        width: 7.5rem
-                        height: 7.5rem
+                        width: 25vw
+                        height: 25vw
+
                         a
-                            font-size: 3.5vw
+                            font-size: 3vw
 
                     & .excerpt
                         max-width: 70%
-                        font-size: 3.5vw
+                        font-size: 3.25vw
                         line-height: 5vw
                         text-align: center
+                        padding: 2.5%
+                        background-color: rgba($white, 0.4)
+                        border-top-left-radius: 20px
+                        border-bottom-left-radius: 20px
+                        border-bottom-right-radius: 20px
 
-            & .main__element img,
-            & .back__element img,
-            & .front__element img
-                height: 50%
-                transform: translate(-50%, 0)
+            & .main__element,
+            & .back__element,
+            & .front__element
+                transform: scale(1.75) translateY(-20%)
+                & img
+                    height: 50%
+                    transform: translate(-50%, 0)

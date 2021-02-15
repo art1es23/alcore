@@ -9,7 +9,7 @@
     &__img
         position: relative
         width: 30%
-        min-height: 75vh
+        min-height: 80vh
         overflow: initial
 
         &::before
@@ -49,4 +49,31 @@
             width: 40%
         &__description
             padding: 5% 7.5%
-            width: 50%
+            width: 55%
+            margin-left: auto
+
+@media screen and ( max-width: 768px)
+    .about-us
+        &__img
+            min-height: 45vh
+        &__text
+            font-size: 1.5vw
+            line-height: 2vw
+
+@media screen and ( max-width: 480px)
+    .about-us
+        flex-direction: column-reverse
+        align-items: center
+
+        &__description
+            margin: 0 auto
+            width: 100%
+
+        &__img
+            width: 80%
+            min-height: 50vh
+            margin-bottom: 5vw
+
+        &__text
+            font-size: 3.5vw
+            line-height: 4.25vw

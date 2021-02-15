@@ -2,6 +2,11 @@
 
 .glue-page
     flex-wrap: wrap
+    &::before
+        right: 3%
+        bottom: 35%
+        height: 5vw
+        width: 5vw
 
     &__description
         background-color: $white
@@ -161,3 +166,101 @@
     border-top-left-radius: 20px
     border-bottom-right-radius: 20px
     border-bottom-left-radius: 20px
+
+@media screen and ( max-width: 1224px)
+    .glue-page
+        &::before
+            right: 5%
+            height: 7.5vw
+            width: 7.5vw
+
+@media screen and ( max-width: 768px)
+    .glue-page
+        & .product-description--wrapper
+            order: 2
+            width: 100%
+        & .product-description__img
+            order: 3
+            width: 50%
+            margin: 0 auto
+        &__list
+            transform: translateX(-3.5%)
+            grid-template-columns: repeat(1, 1fr)
+            &--wrapper
+                order: 1
+        &__description
+            font-size: 2vw
+            line-height: 3.75vw
+
+    .glue
+        flex-direction: column
+        width: 100%
+        justify-content: space-between
+        align-items: center
+        margin: 7.5vw auto
+
+        &__img
+            height: 40vw
+            &::before
+                height: 15vw
+                width: 15vw
+        &--wrapper
+            width: 80%
+            margin: 0 auto
+
+        &__title
+            font-size: 2.5vw
+            line-height: 5vw
+
+        &--reverse
+            & .glue--wrapper
+                margin: 0 auto
+
+    .glue-list
+        &__title
+            font-size: 2vw
+            line-height: 3vw
+
+        &__description
+            font-size: 2vw
+            line-height: 3vw
+
+    .btn--order
+        font-size: 2vw
+        margin: 5% auto
+        padding: 2.5vw 1vw
+@media screen and ( max-width: 480px)
+    .glue-page
+        &__description
+            font-size: 3vw
+            line-height: 4.5vw
+
+    .glue
+        margin-bottom: 10vw
+
+        &__img
+            height: 65vw
+            &::before
+                height: 20vw
+                width: 20vw
+        &--wrapper
+            width: 90%
+
+        &__title
+            font-size: 3.5vw
+            line-height: 5vw
+            text-align: center
+
+    .glue-list
+        &__title
+            font-size: 3vw
+            line-height: 4.5vw
+
+        &__description
+            font-size: 3vw
+            line-height: 4.5vw
+
+    .btn--order
+        font-size: 3.75vw
+        width: 75%
+        padding: 5vw 1vw

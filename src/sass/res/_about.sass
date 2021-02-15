@@ -3,12 +3,11 @@
 .about
     display: flex
     width: 100%
-    min-height: 100vh
     background-image: url('../img/slider_bg.jpg')
     margin-top: 10%
 
 .history
-    margin-left: 35%
+    margin-left: 35vw
     display: flex
     flex-direction: column
     width: 100%
@@ -28,7 +27,7 @@
         grid-template-columns: repeat(3, auto)
         // grid-template-rows: repeat(4, minmax(10rem, 1fr))
         grid-gap: 2.5vw
-        padding: 5%
+        padding: 2.5vw
         justify-content: center
         align-items: center
 
@@ -45,13 +44,14 @@
     border-bottom-left-radius: 30px
     border-bottom-right-radius: 30px
     transition: $transition
+    text-transform: initial
 
     &:hover
         box-shadow: -10px 10px 15px 2.5px rgba($green-light, 0.15)
 
     &__number
         text-align: center
-        font-size: 2vw
+        font-size: 1.75vw
         font-weight: 600
         color: $green
 
@@ -62,4 +62,65 @@
         text-align: center
         padding: 5% 0
         line-height: 1vw
+        font-size: 1vw
         color: $black
+@media screen and ( max-width: 1600px)
+    .event
+        &__description
+            line-height: 1.25vw
+
+@media screen and ( max-width: 1366px)
+    .history
+        margin-left: 30vw
+@media screen and ( max-width: 1224px)
+    .history
+        margin-left: 25vw
+@media screen and ( max-width: 1024px)
+    .history
+        margin-left: 0
+        &--wrapper
+            grid-template-columns: repeat(3, auto)
+
+    .event
+        &__description
+            padding: 5% 10%
+            font-size: 1.25vw
+            line-height: 1.5vw
+
+@media screen and ( max-width: 768px)
+    .about
+        margin-top: 20%
+    .history
+        margin-left: 0
+        &--wrapper
+            grid-template-columns: repeat(2, auto)
+        &__title
+            padding: 2.5vw 0
+            font-size: 3.75vw
+
+    .event
+        &__number
+            font-size: 3.5vw
+        &__description
+            font-size: 1.85vw
+            line-height: 2vw
+
+@media screen and ( max-width: 480px)
+    .about
+        margin-top: 27.5%
+
+    .history
+        &--wrapper
+            grid-template-columns: repeat(2, auto)
+            grid-gap: 3.5vw
+        &__title
+            font-size: 6.5vw
+            padding-bottom: 5vw
+
+    .event
+        &__number
+            font-size: 5vw
+        &__description
+            padding: 5% 0
+            font-size: 2.5vw
+            line-height: 3.5vw

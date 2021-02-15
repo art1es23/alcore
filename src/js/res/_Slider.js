@@ -16,7 +16,7 @@ const pageHome = (container) => {
             this.baseAnimeSettings = {
                 rotation: 45,
                 duration: 750,
-                easing: 'easeInOutCirc'
+                easing: 'easeInOutCirc',
             };
             this.baseAnimeSettingsBack = {
                 rotation: 45,
@@ -34,7 +34,7 @@ const pageHome = (container) => {
             };
             this.baseAnimeSettingsTitle = {
                 rotation: 45,
-                duration: 1750,
+                duration: 3550,
                 elasticity: function (el, i, l) {
                     return (200 + i * 200);
                 }
@@ -61,11 +61,40 @@ const pageHome = (container) => {
             self.current = index;
             nextSlide.classList.add("slider-list__item_active");
 
-            anime(Object.assign({}, self.baseAnimeSettings, {
-                targets: nextSlide,
-                rotate: [90 * dir + 'deg', 0],
-                translateX: [90 * dir + '%', 0]
-            }));
+            console.log(window.innerWidth);
+            if (window.innerWidth > 480) {
+                console.log('Start desk');
+
+                anime(Object.assign({}, self.baseAnimeSettings, {
+                    targets: nextSlide,
+                    rotate: [90 * dir + 'deg', 0],
+                    translateX: [90 * dir + '%', 0],
+                }));
+                anime(Object.assign({}, self.baseAnimeSettingsTitle, {
+                    targets: nextSlide.querySelectorAll('.title__element'),
+                    rotate: [90 * dir + 'deg', 0],
+                    translateX: [90 * dir + '%', 0]
+                }));
+
+
+            } else {
+                console.log('Start mob');
+
+                anime(Object.assign({}, self.baseAnimeSettings, {
+
+                    targets: nextSlide,
+                    rotate: [90 * dir + 'deg', 0],
+                    translateX: [90 * dir + '%', 0],
+                    translateY: [100 * dir + '%', 0]
+                }));
+                anime(Object.assign({}, self.baseAnimeSettingsTitle, {
+                    targets: nextSlide.querySelectorAll('.title__element'),
+                    rotate: [90 * dir + 'deg', 0],
+                    translateX: [90 * dir + '%', 0],
+                    translateY: [100 * dir + '%', 0]
+                }));
+
+            }
 
             anime(Object.assign({}, self.baseAnimeSettingsBack, {
                 targets: nextSlide.querySelectorAll('.back__element'),
@@ -79,25 +108,44 @@ const pageHome = (container) => {
                 translateX: [90 * dir + '%', 0]
             }));
 
-            anime(Object.assign({}, self.baseAnimeSettingsTitle, {
-                targets: nextSlide.querySelectorAll('.title__element'),
-                rotate: [90 * dir + 'deg', 0],
-                translateX: [90 * dir + '%', 0]
-            }));
 
-            anime(Object.assign({}, self.baseAnimeSettings, {
-                targets: prevSlide,
-                rotate: [0, -90 * dir + 'deg'],
-                translateX: [0, -100 * dir + '%'],
-                complete: function (anim) {
-                    self.isAnimating = false;
-                    prevSlide.classList.remove("slider-list__item_active");
-                    self.thumbs.forEach((item, index) => {
-                        var action = index === self.current ? "add" : "remove";
-                        item.classList[action]("nav-control_active");
-                    });
-                }
-            }));
+            if (window.innerWidth > 480) {
+                anime(Object.assign({}, self.baseAnimeSettings, {
+                    targets: prevSlide,
+                    rotate: [0, -90 * dir + 'deg'],
+                    translateX: [0, -90 * dir + '%'],
+                    complete: function (anim) {
+                        self.isAnimating = false;
+                        prevSlide.classList.remove("slider-list__item_active");
+                        self.thumbs.forEach((item, index) => {
+                            var action = index === self.current ? "add" : "remove";
+                            item.classList[action]("nav-control_active");
+                        });
+                    }
+                }));
+            } else {
+                anime(Object.assign({}, self.baseAnimeSettings, {
+                    targets: prevSlide,
+                    rotate: [0, -90 * dir + 'deg'],
+                    translateX: [0, -90 * dir + '%'],
+                    translateY: [0, -100 * dir + '%'],
+                    complete: function (anim) {
+                        self.isAnimating = false;
+                        prevSlide.classList.remove("slider-list__item_active");
+                        self.thumbs.forEach((item, index) => {
+                            var action = index === self.current ? "add" : "remove";
+                            item.classList[action]("nav-control_active");
+                        });
+                    }
+                }));
+
+                anime(Object.assign({}, self.baseAnimeSettingsTitle, {
+                    targets: prevSlide.querySelectorAll('.title__element'),
+                    rotate: [0, -90 * dir + 'deg'],
+                    translateX: [0, -100 * dir + '%'],
+                    translateY: [0, -100 * dir + '%'],
+                }));
+            }
 
             anime(Object.assign({}, self.baseAnimeSettingsBack, {
                 targets: prevSlide.querySelectorAll('.back__element'),
@@ -111,11 +159,6 @@ const pageHome = (container) => {
                 translateX: [0, -100 * dir + '%']
             }));
 
-            anime(Object.assign({}, self.baseAnimeSettingsTitle, {
-                targets: prevSlide.querySelectorAll('.title__element'),
-                rotate: [0, -90 * dir + 'deg'],
-                translateX: [0, -100 * dir + '%']
-            }));
         }
 
         goStep(dir) {
@@ -126,11 +169,11 @@ const pageHome = (container) => {
         }
 
         goNext() {
-            this.goStep(1);
+            this.goStep(-1);
         }
 
         goPrev() {
-            this.goStep(-1);
+            this.goStep(1);
         }
 
         _navClickHandler(e) {

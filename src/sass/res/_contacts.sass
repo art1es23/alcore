@@ -5,7 +5,7 @@
   position: relative
   display: flex
   align-items: center
-  margin: 10% auto 5%
+  margin: 12.5% auto 5%
 
   &--wrapper
     display: grid
@@ -13,7 +13,7 @@
     justify-content: space-between
     align-items: center
     grid-template-columns: repeat(4, 1fr)
-    grid-gap: 5rem
+    grid-gap: 5vw
 
   &__item
     display: flex
@@ -49,7 +49,7 @@
   &__caption,
   &__link,
   &__description
-    padding: 0.35rem 0
+    padding: 0.35vw 0
     text-align: left
     display: flex
     justify-content: flex-start
@@ -60,21 +60,24 @@
   &__caption
     font-weight: 600
     color: $green
-    font-size: 1vw
+    font-size: 0.8vw
 
 .btn
   &--wrapper
-    display: flex
+    display: grid
     width: 100%
     height: 100%
+    grid-template-columns: repeat(2, 1fr)
     align-items: center
     justify-content: space-between
+    margin: 10% auto
 
   &--download
     display: flex
     width: 10vw
     height: 10vw
     border: none
+    margin: 0 auto
     padding: 0 7.5%
     white-space: inherit
     background-color: transparent
@@ -92,3 +95,51 @@
     &:hover
       cursor: pointer
       box-shadow: -10px 10px 10px 2.5px rgba($green, 0.25)
+
+@media screen and ( max-width: 1024px)
+  .contacts
+    width: 90%
+
+@media screen and ( max-width: 768px)
+  .contacts
+    margin: 20% auto 5%
+
+    &--wrapper
+      grid-template-columns: repeat(2, 1fr)
+
+  .list-contacts
+    &__caption,
+    &__link,
+    &__description
+      font-size: 1.75vw
+
+  .btn
+    &--wrapper
+      margin: 5vw 0
+
+      & .form-contact__btn--wrapper
+        margin: 0
+
+    &--download
+      width: 17.5vw
+      height: 17.5vw
+      font-size: 2vw
+      margin: 0 auto
+      padding: 0
+
+@media screen and ( max-width: 480px)
+  .contacts
+    margin: 25% auto 5%
+
+  .list-contacts
+    &__caption,
+    &__link,
+    &__description
+      font-size: 2.5vw
+      line-height: 3.25vw
+
+  .btn
+    &--download
+      width: 25vw
+      height: 25vw
+      font-size: 3vw
