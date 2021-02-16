@@ -143,6 +143,7 @@
         right: 0
         bottom: 0
         z-index: 3
+        background: 50% 100% / contain no-repeat url('../img/slider_item1.png')
 
     &__item .main__element img
         position: relative
@@ -188,14 +189,14 @@
     &__item .title__element .title
         position: relative
         display: block
-        width: 100%
+        width: 65%
         height: auto
-        top: 15%
-        left: 70%
+        top: 20%
+        left: 60%
         transform: translate( -50%, 0% )
         color: #eef2f3
-        text-align: center
-        font-size: 10vw
+        text-align: right
+        font-size: 7.5vw
 
     &__item .more__element
         position: relative
@@ -296,6 +297,18 @@
         transform: translateX(0)
         z-index: 2
 
+.slide
+    &-1
+        background: 50% 100% / contain no-repeat url('../img/kytnuk.png')
+//     &-2
+//         background: 50% 100% / contain no-repeat url('../img/slider_item1.png')
+//     &-3
+//         background: 50% 100% / contain no-repeat url('../img/slider_item1.png')
+//     &-4
+//         background: 50% 100% / contain no-repeat url('../img/slider_item1.png')
+//     &-5
+//         background: 50% 100% / contain no-repeat url('../img/slider_item1.png')
+
 @media screen and ( max-width: 1600px)
     .slider-list
         &__item .more__element .content .excerpt
@@ -380,7 +393,7 @@
             & .main__element,
             & .back__element,
             & .front__element
-                transform: scale(1.75) translateY(-20%)
+                transform: scale(2) translate(5%, -25%)
                 & img
                     height: 50%
                     transform: translate(-50%, 0)

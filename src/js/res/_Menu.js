@@ -7,7 +7,7 @@ const toggleMenu = (container) => {
             this.menuToogle = document.querySelector('.menu');
             this.menuNav = document.querySelector('.navigation--wrapper');
             this.menuInner = document.querySelector('.navigation');
-            this.body = document.querySelector('body');
+            // this.body = document.querySelector('body');
 
             this.init();
         }
@@ -66,12 +66,19 @@ const toggleMenu = (container) => {
 
             };
 
+            // document.body.classList.remove('scroll--hidden');
             this.menuToogle.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (!this.header.classList.contains('header--size')) {
-                    show().play();
-                } else {
+                if (this.header.classList.contains('header--size')) {
                     hide().play();
+                    document.body.classList.remove('scroll--hidden');
+                } else if (!this.header.classList.contains('header--size') && window.pageYOffset > 0) {
+                    show().play();
+                    document.body.classList.remove('scroll--hidden');
+
+                } else {
+                    show().play();
+                    document.body.classList.add('scroll--hidden');
                 }
                 this.menuNav.classList.toggle('navigation--show');
                 this.menuToogle.classList.toggle('menu--toggle');
@@ -79,8 +86,8 @@ const toggleMenu = (container) => {
                 if (this.menuInner.classList.contains('navigation--align')) {
                     this.menuInner.classList.remove('navigation--align');
                 }
+
                 this.menuInner.classList.add('navigation--align');
-                this.body.classList.toggle('scroll--hidden');
             });
 
             window.addEventListener('scroll', (e) => {
@@ -89,24 +96,34 @@ const toggleMenu = (container) => {
 
                 this.header.classList.remove('header--position', 'header--size');
 
-                if (scrollPage > 0) {
+                // show().play();
+                if (scrollPage == 0) {
+                    // document.body.classList.remove('scroll--hidden');
+                    hide().play();
+                    this.menuNav.classList.remove('navigation--show');
+                    this.menuToogle.classList.remove('menu--toggle');
+                    this.menuInner.classList.remove('navigation--align');
+
+                } else {
                     show().play();
                     this.header.classList.add('header--position');
                     this.menuInner.classList.remove('navigation--align');
                     this.menuNav.classList.remove('navigation--show');
                     this.menuToogle.classList.remove('menu--toggle');
 
-                    if (this.menuNav.classList.contains('navigation--show')) {
+                    if (this.header.classList.contains('header--size')) {
+
+                        this.menuNav.classList.toggle('navigation--show');
+                        this.menuToogle.classList.toggle('menu--toggle');
+                        this.header.classList.toggle('header--size');
+                        if (this.menuInner.classList.contains('navigation--align')) {
+                            this.menuInner.classList.remove('navigation--align');
+                        }
+
                         this.menuInner.classList.add('navigation--align');
-                        hide().play();
 
                     }
-                } else {
-                    hide().play();
 
-                    this.menuNav.classList.remove('navigation--show');
-                    this.menuToogle.classList.remove('menu--toggle');
-                    this.menuInner.classList.remove('navigation--align');
                 }
 
             });
