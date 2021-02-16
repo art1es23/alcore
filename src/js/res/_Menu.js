@@ -69,59 +69,78 @@ const toggleMenu = (container) => {
             // document.body.classList.remove('scroll--hidden');
             this.menuToogle.addEventListener('click', (e) => {
                 e.preventDefault();
+                let scroll = window.pageYOffset;
+                console.log('scroll: ', scroll);
+
                 if (this.header.classList.contains('header--size')) {
                     hide().play();
                     document.body.classList.remove('scroll--hidden');
-                } else if (!this.header.classList.contains('header--size') && window.pageYOffset > 0) {
-                    show().play();
-                    document.body.classList.remove('scroll--hidden');
+                    console.log(document.body.style.top);
+
+                } else if (this.header.classList.contains('header--position')) {
+                    //     hide().play();
+                    //     this.header.classList.add('header--size');
+
+                    //     if (!this.header.classList.contains('header--size')) return;
+                    //     console.log('header-size ok');
+
+                    document.body.classList.add('scroll--hidden');
+
+                    document.body.style.top = -scroll + 'px';
+                    console.log(document.body.style.top);
 
                 } else {
                     show().play();
                     document.body.classList.add('scroll--hidden');
+                    document.body.style.top = '';
+                    console.log(document.body.style.top);
+                    window.scrollTo({
+                        top: `${scroll}`,
+                        behavior: "smooth"
+                    });
                 }
+                document.body.scrollTo({
+                    top: scroll,
+                    behavior: "smooth"
+                });
+
+                this.header.classList.toggle('header--size');
                 this.menuNav.classList.toggle('navigation--show');
                 this.menuToogle.classList.toggle('menu--toggle');
-                this.header.classList.toggle('header--size');
                 if (this.menuInner.classList.contains('navigation--align')) {
                     this.menuInner.classList.remove('navigation--align');
                 }
 
                 this.menuInner.classList.add('navigation--align');
+                // return scroll;
             });
+
+
 
             window.addEventListener('scroll', (e) => {
                 e.preventDefault();
                 let scrollPage = window.pageYOffset;
 
-                this.header.classList.remove('header--position', 'header--size');
+                this.header.classList.remove('header--position');
+                // if (this.header.classList.contains('header--size')) {
+                //     hide().play();
+                // }
 
-                // show().play();
-                if (scrollPage == 0) {
-                    // document.body.classList.remove('scroll--hidden');
+                show().play();
+
+                if (scrollPage == 0 && !document.body.classList.contains('scroll--hidden')) {
                     hide().play();
-                    this.menuNav.classList.remove('navigation--show');
-                    this.menuToogle.classList.remove('menu--toggle');
-                    this.menuInner.classList.remove('navigation--align');
+                    this.header.classList.remove('header--position');
+
+                    // } else if (scrollPage > 0 && !document.body.classList.contains('scroll--hidden')) {
+                    //     hide().play();
+                    //     this.header.classList.add('header--position');
 
                 } else {
-                    show().play();
                     this.header.classList.add('header--position');
-                    this.menuInner.classList.remove('navigation--align');
-                    this.menuNav.classList.remove('navigation--show');
-                    this.menuToogle.classList.remove('menu--toggle');
 
-                    if (this.header.classList.contains('header--size')) {
-
-                        this.menuNav.classList.toggle('navigation--show');
-                        this.menuToogle.classList.toggle('menu--toggle');
-                        this.header.classList.toggle('header--size');
-                        if (this.menuInner.classList.contains('navigation--align')) {
-                            this.menuInner.classList.remove('navigation--align');
-                        }
-
-                        this.menuInner.classList.add('navigation--align');
-
+                    if (this.header.classList.contains('header--size') && window.pageYOffset === 0) {
+                        show().play();
                     }
 
                 }
