@@ -19,6 +19,9 @@ const toggleMenu = (container) => {
             const circleLogo = document.querySelector('circle.circle--logo');
             const circleToggle = document.querySelector('circle.circle--toggle');
 
+            const maskSVG = document.querySelector('.header--mask');
+            maskSVG.setAttribute('viewbox', `0 0 ${window.innerWidth} ${window.innerHeight}`);
+
             const hide = () => {
                 let tl = new gsap.timeline({
                     paused: true
@@ -50,17 +53,17 @@ const toggleMenu = (container) => {
                 tl
                     .to(circleLogo, 1.5, {
                         scale: 10,
-                        y: -500,
-                        x: -500,
-                        yPercent: 50,
-                        xPercent: 0,
+                        // y: -500,
+                        // x: -500,
+                        yPercent: 0,
+                        xPercent: -400,
                     })
                     .to(circleToggle, 1.5, {
                         scale: 10,
-                        y: -500,
-                        x: -500,
-                        yPercent: -100,
-                        xPercent: 0,
+                        // y: -500,
+                        // x: -500,
+                        yPercent: -150,
+                        xPercent: -400,
                     }, '-=1.5');
                 return tl;
 

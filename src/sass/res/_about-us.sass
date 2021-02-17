@@ -8,8 +8,8 @@
 
     &__img
         position: relative
-        width: 30%
-        min-height: 80vh
+        width: 35%
+        min-height: 45vw
         overflow: initial
 
         &::before
@@ -29,27 +29,26 @@
     &__description
         display: flex
         flex-direction: column
-        padding: 5% 15%
+        padding: 0 15%
         width: 70%
+        margin: 2.5vw auto
 
     &__text
         font-size: 1.1vw
         text-align: justify
+        text-transform: initial
         padding: 2.5% 0
         color: $black
-        line-height: 1.5vw
+        line-height: 1.75vw
 
 @media screen and ( max-width: 1600px)
     .about-us
         &__description
-            padding: 5% 17.5%
-@media screen and ( max-width: 1224px)
+            margin: 2.5vw auto
+@media screen and ( max-width: 1366px)
     .about-us
-        &__img
-            width: 40%
         &__description
-            padding: 5% 7.5%
-            width: 55%
+            padding: 0 15%
             margin-left: auto
 
 @media screen and ( max-width: 768px)

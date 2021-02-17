@@ -44,6 +44,17 @@ barba.hooks.once(data => {
 });
 
 barba.init({
+    transitions: [{
+        name: 'default',
+        once({
+            current,
+            next
+        }) {},
+        enter({
+            current,
+            next
+        }) {}
+    }],
     views: [{
             namespace: 'home',
             beforeEnter(data) {
