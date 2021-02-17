@@ -66,43 +66,36 @@ const toggleMenu = (container) => {
 
             };
 
-            // document.body.classList.remove('scroll--hidden');
+
             this.menuToogle.addEventListener('click', (e) => {
                 e.preventDefault();
-                let scroll = window.pageYOffset;
-                console.log('scroll: ', scroll);
 
-                if (this.header.classList.contains('header--size')) {
-                    hide().play();
-                    document.body.classList.remove('scroll--hidden');
-                    console.log(document.body.style.top);
-
-                } else if (this.header.classList.contains('header--position')) {
-                    //     hide().play();
-                    //     this.header.classList.add('header--size');
-
-                    //     if (!this.header.classList.contains('header--size')) return;
-                    //     console.log('header-size ok');
-
-                    document.body.classList.add('scroll--hidden');
+                if (this.header.classList.contains('header--position')) {
+                    let scroll = window.pageYOffset;
 
                     document.body.style.top = -scroll + 'px';
-                    console.log(document.body.style.top);
+                    document.body.classList.toggle('scroll--hidden');
+                    this.header.classList.toggle('header--position');
+
+                    if (this.header.classList.contains('header--size', 'header--position')) {
+                        document.body.style.top = '';
+                        console.log(scroll);
+                        window.scrollTo(0, scroll);
+                        // window.scrollTo({
+                        //     top: scroll,
+                        //     behavior: "smooth"
+                        // });
+                        hide().play();
+                    }
+
+                } else if (this.header.classList.contains('header--size')) {
+                    hide().play();
+                    document.body.classList.remove('scroll--hidden');
 
                 } else {
                     show().play();
                     document.body.classList.add('scroll--hidden');
-                    document.body.style.top = '';
-                    console.log(document.body.style.top);
-                    window.scrollTo({
-                        top: `${scroll}`,
-                        behavior: "smooth"
-                    });
                 }
-                document.body.scrollTo({
-                    top: scroll,
-                    behavior: "smooth"
-                });
 
                 this.header.classList.toggle('header--size');
                 this.menuNav.classList.toggle('navigation--show');
@@ -112,19 +105,16 @@ const toggleMenu = (container) => {
                 }
 
                 this.menuInner.classList.add('navigation--align');
-                // return scroll;
             });
 
-
+            // window.scrollTo({
+            //     top: `${scroll}`,
+            //     behavior: "smooth"
+            // });
 
             window.addEventListener('scroll', (e) => {
                 e.preventDefault();
                 let scrollPage = window.pageYOffset;
-
-                this.header.classList.remove('header--position');
-                // if (this.header.classList.contains('header--size')) {
-                //     hide().play();
-                // }
 
                 show().play();
 
@@ -132,23 +122,15 @@ const toggleMenu = (container) => {
                     hide().play();
                     this.header.classList.remove('header--position');
 
-                    // } else if (scrollPage > 0 && !document.body.classList.contains('scroll--hidden')) {
-                    //     hide().play();
-                    //     this.header.classList.add('header--position');
-
                 } else {
                     this.header.classList.add('header--position');
 
                     if (this.header.classList.contains('header--size') && window.pageYOffset === 0) {
                         show().play();
                     }
-
                 }
-
             });
         }
-
-
     }
 
     let togglemenu = new Menu();
