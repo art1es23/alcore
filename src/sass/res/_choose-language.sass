@@ -26,6 +26,7 @@
       color: $green-light
 
     &:nth-child(2n)
+      padding: 0 0.5vw
       &::after,
       &::before
         content: ''
@@ -53,4 +54,7 @@
 @media screen and (max-width: 480px)
   .chooseLanguage
     &__item
-      font-size: 4vw
+      font-size: 3.5vw
+
+      &:nth-child(2n)
+        padding: 0 1.5vw

@@ -20,10 +20,10 @@ const toggleMenu = (container) => {
             let logoWidth = logo.clientWidth;
             let logoHeight = logo.clientHeight;
 
-            let navLeft = this.menuInner.getBoundingClientRect().left;
-            let navTop = this.menuInner.getBoundingClientRect().top;
-            let navWidth = this.menuInner.clientWidth;
-            let navHeight = this.menuInner.clientHeight;
+            // let navLeft = this.menuInner.getBoundingClientRect().left;
+            // let navTop = this.menuInner.getBoundingClientRect().top;
+            // let navWidth = this.menuInner.clientWidth;
+            // let navHeight = this.menuInner.clientHeight;
 
             let menuIconLeft = document.querySelector('.chooseLanguage').getBoundingClientRect().left;
             let menuIconWidth = document.querySelector('.chooseLanguage').clientWidth;
@@ -32,26 +32,22 @@ const toggleMenu = (container) => {
             const circleToggle = document.querySelector('circle.circle--toggle');
 
             const maskSVG = document.querySelector('.header--mask');
+
             maskSVG.setAttribute('viewbox', `0 0 ${window.innerWidth} ${this.header.clientHeight}`);
-
-            console.log('heade', this.header.clientHeight);
-
 
             const setMask = () => {
                 let tl = new gsap.timeline({
                     paused: true,
                     duration: 0
                 });
-                console.log('SET SVG');
-                console.log(navLeft, navWidth);
-                console.log(navTop, navHeight);
+
                 tl
                     .set(circleLogo, {
                         scale: 1,
                         attr: {
                             r: this.header.clientHeight / 2,
-                            cx: logoLeft + (logoHeight / 2),
-                            cy: logoHeight / 2,
+                            cx: logoLeft + (this.header.clientHeight / 2),
+                            cy: this.header.clientHeight / 2,
 
                         },
                         // transformOrigin: `${Math.abs(logoLeft + (logoWidth / 2))} top`
@@ -62,7 +58,7 @@ const toggleMenu = (container) => {
                             cx: menuIconLeft + menuIconWidth,
                             cy: 0,
                         },
-                        transformOrigin: `${Math.abs(navLeft - (navWidth / 2))}px top`
+                        // transformOrigin: `${Math.abs(navLeft - (navWidth / 2))}px top`
                     });
 
                 return tl;
@@ -76,14 +72,14 @@ const toggleMenu = (container) => {
                     paused: true,
                     ease: "power3.inOut"
                 });
-                // setMask();
+
                 tl
-                    .to(circleLogo, 1.5, {
+                    .to(circleLogo, 2, {
                         scale: 1,
                     })
-                    .to(circleToggle, 1.5, {
+                    .to(circleToggle, 2, {
                         scale: 1,
-                    }, '-=1.5');
+                    }, '-=2');
 
                 return tl;
             };
@@ -93,34 +89,16 @@ const toggleMenu = (container) => {
                     paused: true,
                     ease: "power3.inOut"
                 });
-                // setMask();
 
                 tl
-                    .to(circleLogo, 1.5, {
-                        scale: 50,
+                    .to(circleLogo, 2, {
+                        scale: 25,
                         transformOrigin: 'center center',
-                        // attr: {
-                        //     r: logoWidth / 2
-                        // }
-                        // transformOrigin: `${Math.abs(logoLeft + (logoWidth / 10))} ${logoTop + (logoHeight / 3)}px`
-                        // y: -500,
-                        // x: -500,
-                        // yPercent: 0,
-                        // xPercent: -400,
                     })
-                    .to(circleToggle, 1.5, {
-                        scale: 50,
+                    .to(circleToggle, 2, {
+                        scale: 25,
                         transformOrigin: 'center center',
-                        // attr: {
-                        //     r: 50 / 2
-                        // }
-
-                        // transformOrigin: `${Math.abs(navLeft - (navWidth / 3))}px ${navTop - (navHeight / 2)}px`
-                        // y: -500,
-                        // x: -500,
-                        // yPercent: -150,
-                        // xPercent: -400,
-                    }, '-=1.5');
+                    }, '-=2');
                 return tl;
 
             };
@@ -139,12 +117,9 @@ const toggleMenu = (container) => {
 
                     if (this.header.classList.contains('header--size', 'header--position')) {
                         document.body.style.top = '';
-                        // console.log(scroll);
+
                         window.scrollTo(0, scroll);
-                        // window.scrollTo({
-                        //     top: scroll,
-                        //     behavior: "smooth"
-                        // });
+
                         hide().play();
                     }
 
@@ -160,11 +135,6 @@ const toggleMenu = (container) => {
                 this.header.classList.toggle('header--size');
                 this.menuNav.classList.toggle('navigation--show');
                 this.menuToogle.classList.toggle('menu--toggle');
-                if (this.menuInner.classList.contains('navigation--align')) {
-                    this.menuInner.classList.remove('navigation--align');
-                }
-
-                this.menuInner.classList.add('navigation--align');
             });
 
             // window.scrollTo({

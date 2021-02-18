@@ -9,7 +9,6 @@
   width: 11.25vw
   transition: $transition
   border-radius: 50%
-  // transform: translateY(-7.5%)
   &__link
     width: 60%
     display: flex
@@ -20,11 +19,9 @@
 
     position: relative
     object-fit: cover
-    // background-color: $black
     background: center / contain no-repeat url('../img/logo_white.png')
     transition: $transition
     overflow: hidden
-    // transform: translateY(-7.5%)
 
   &__icon
     width: 20%
@@ -56,9 +53,6 @@
     &__link
       width: 80%
       min-height: 15vw
-      // transform: translateY(-2.5%)
-    &__icon
-      // transform: scale(1.5)
 
     &__caption
       font-size: 3vw
@@ -66,8 +60,7 @@
 
 @media screen and (max-width: 480px)
   .logo
-    width: 25vw
-    &__caption
+    width: 35vw
+    &_link
+
       min-height: 20vw
-      font-size: 5vw
-      padding: 1vw 0

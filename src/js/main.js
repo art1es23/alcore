@@ -49,11 +49,15 @@ barba.init({
         once({
             current,
             next
-        }) {},
+        }) {
+            // document.querySelector('.header').classList.remove('header--size');
+        },
         enter({
             current,
             next
-        }) {}
+        }) {
+            // document.querySelector('.header').classList.remove('header--size');
+        }
     }],
     views: [{
             namespace: 'home',
