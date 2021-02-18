@@ -5,10 +5,9 @@
     display: grid
     grid-template-columns: repeat(2, 1fr)
 
-    &__map
+    & iframe
         width: 100%
         height: 100%
-        &--wrapper
 
 .contact-form
     padding: 0 17.5%
@@ -19,11 +18,11 @@
 @media screen and ( max-width: 768px)
     .location
         grid-template-columns: repeat(1, 1fr)
-        grid-template-rows: repeat(2, auto)
+        // grid-template-rows: repeat(2, auto)
 
         &__map
             &--wrapper
-                min-height: 50vh
+                // min-height: 50vh
 
 @media screen and ( max-width: 480px)
 

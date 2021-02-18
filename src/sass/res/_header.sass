@@ -21,10 +21,9 @@
   clip-path: url(#mask-circle)
 
   &--mask
-    position: absolute
-    top: 50%
-    transform: translate(-50%, -50%)
-    left: 50%
+    position: fixed
+    // width: auto
+    height: auto
 
     & .circle--logo
       display: inline-block
@@ -49,8 +48,6 @@
         &::after
           background-color: $black
 
-    & .header--mask
-      transform: scale(2)
     & .logo
       border-radius: none
       // transform: translateY(0)

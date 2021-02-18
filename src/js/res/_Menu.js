@@ -16,30 +16,56 @@ const toggleMenu = (container) => {
 
             const logo = document.querySelector('.logo');
             const logoLeft = logo.getBoundingClientRect().left;
+            const logoTop = logo.getBoundingClientRect().top;
+            const logoWidth = logo.clientWidth;
+            const logoHeight = logo.clientHeight;
+
+            const navLeft = this.menuInner.getBoundingClientRect().left;
+            const navTop = this.menuInner.getBoundingClientRect().top;
+            const navWidth = this.menuInner.clientWidth;
+            const navHeight = this.menuInner.clientHeight;
+
             const circleLogo = document.querySelector('circle.circle--logo');
             const circleToggle = document.querySelector('circle.circle--toggle');
 
             const maskSVG = document.querySelector('.header--mask');
-            maskSVG.setAttribute('viewbox', `0 0 ${window.innerWidth} ${window.innerHeight}`);
+            maskSVG.setAttribute('viewbox', `0 0 ${window.innerWidth} ${this.header.clientHeight}`);
 
-            const hide = () => {
+            console.log('heade', this.header.clientHeight);
+
+
+            const setMask = () => {
                 let tl = new gsap.timeline({
                     paused: true
                 });
+                console.log('SET SVG');
+                console.log(navLeft, navWidth);
+                console.log(navTop, navHeight);
+                tl
+                    .set(circleLogo, {
+                        scale: 1,
+                        // transformOrigin: `${Math.abs(logoLeft + (logoWidth / 2))} ${logoTop}px`
+                    })
+                    .set(circleToggle, {
+                        // transformOrigin: `${Math.abs(navLeft - (navWidth / 2))}px ${navTop}px`
+                    }, '-=1.5');
+
+                return tl;
+            };
+
+
+            const hide = () => {
+                let tl = new gsap.timeline({
+                    paused: true,
+                    ease: "power3.inOut"
+                });
+                // setMask();
                 tl
                     .to(circleLogo, 1.5, {
                         scale: 1,
-                        y: 0,
-                        x: 0,
-                        yPercent: 0,
-                        xPercent: 0,
                     })
                     .to(circleToggle, 1.5, {
                         scale: 1,
-                        y: 0,
-                        x: 0,
-                        yPercent: 0,
-                        xPercent: 0,
                     }, '-=1.5');
 
                 return tl;
@@ -47,23 +73,30 @@ const toggleMenu = (container) => {
 
             const show = () => {
                 let tl = new gsap.timeline({
-                    paused: true
+                    paused: true,
+                    ease: "power3.inOut"
                 });
+                // setMask();
 
                 tl
                     .to(circleLogo, 1.5, {
-                        scale: 10,
+                        scale: 50,
+                        transformOrigin: 'center center'
+                        // transformOrigin: `${Math.abs(logoLeft + (logoWidth / 10))} ${logoTop + (logoHeight / 3)}px`
                         // y: -500,
                         // x: -500,
-                        yPercent: 0,
-                        xPercent: -400,
+                        // yPercent: 0,
+                        // xPercent: -400,
                     })
                     .to(circleToggle, 1.5, {
-                        scale: 10,
+                        scale: 50,
+                        transformOrigin: 'center center'
+
+                        // transformOrigin: `${Math.abs(navLeft - (navWidth / 3))}px ${navTop - (navHeight / 2)}px`
                         // y: -500,
                         // x: -500,
-                        yPercent: -150,
-                        xPercent: -400,
+                        // yPercent: -150,
+                        // xPercent: -400,
                     }, '-=1.5');
                 return tl;
 
@@ -82,7 +115,7 @@ const toggleMenu = (container) => {
 
                     if (this.header.classList.contains('header--size', 'header--position')) {
                         document.body.style.top = '';
-                        console.log(scroll);
+                        // console.log(scroll);
                         window.scrollTo(0, scroll);
                         // window.scrollTo({
                         //     top: scroll,
