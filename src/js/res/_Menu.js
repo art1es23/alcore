@@ -15,15 +15,18 @@ const toggleMenu = (container) => {
         init() {
 
             const logo = document.querySelector('.logo');
-            const logoLeft = logo.getBoundingClientRect().left;
-            const logoTop = logo.getBoundingClientRect().top;
-            const logoWidth = logo.clientWidth;
-            const logoHeight = logo.clientHeight;
+            let logoLeft = logo.getBoundingClientRect().left;
+            let logoTop = logo.getBoundingClientRect().top;
+            let logoWidth = logo.clientWidth;
+            let logoHeight = logo.clientHeight;
 
-            const navLeft = this.menuInner.getBoundingClientRect().left;
-            const navTop = this.menuInner.getBoundingClientRect().top;
-            const navWidth = this.menuInner.clientWidth;
-            const navHeight = this.menuInner.clientHeight;
+            let navLeft = this.menuInner.getBoundingClientRect().left;
+            let navTop = this.menuInner.getBoundingClientRect().top;
+            let navWidth = this.menuInner.clientWidth;
+            let navHeight = this.menuInner.clientHeight;
+
+            let menuIconLeft = document.querySelector('.chooseLanguage').getBoundingClientRect().left;
+            let menuIconWidth = document.querySelector('.chooseLanguage').clientWidth;
 
             const circleLogo = document.querySelector('circle.circle--logo');
             const circleToggle = document.querySelector('circle.circle--toggle');
@@ -36,7 +39,8 @@ const toggleMenu = (container) => {
 
             const setMask = () => {
                 let tl = new gsap.timeline({
-                    paused: true
+                    paused: true,
+                    duration: 0
                 });
                 console.log('SET SVG');
                 console.log(navLeft, navWidth);
@@ -44,14 +48,27 @@ const toggleMenu = (container) => {
                 tl
                     .set(circleLogo, {
                         scale: 1,
-                        // transformOrigin: `${Math.abs(logoLeft + (logoWidth / 2))} ${logoTop}px`
+                        attr: {
+                            r: this.header.clientHeight / 2,
+                            cx: logoLeft + (logoHeight / 2),
+                            cy: logoHeight / 2,
+
+                        },
+                        // transformOrigin: `${Math.abs(logoLeft + (logoWidth / 2))} top`
                     })
                     .set(circleToggle, {
-                        // transformOrigin: `${Math.abs(navLeft - (navWidth / 2))}px ${navTop}px`
-                    }, '-=1.5');
+                        attr: {
+                            r: this.header.clientHeight,
+                            cx: menuIconLeft + menuIconWidth,
+                            cy: 0,
+                        },
+                        transformOrigin: `${Math.abs(navLeft - (navWidth / 2))}px top`
+                    });
 
                 return tl;
             };
+
+            setMask().play();
 
 
             const hide = () => {
@@ -81,7 +98,10 @@ const toggleMenu = (container) => {
                 tl
                     .to(circleLogo, 1.5, {
                         scale: 50,
-                        transformOrigin: 'center center'
+                        transformOrigin: 'center center',
+                        // attr: {
+                        //     r: logoWidth / 2
+                        // }
                         // transformOrigin: `${Math.abs(logoLeft + (logoWidth / 10))} ${logoTop + (logoHeight / 3)}px`
                         // y: -500,
                         // x: -500,
@@ -90,7 +110,10 @@ const toggleMenu = (container) => {
                     })
                     .to(circleToggle, 1.5, {
                         scale: 50,
-                        transformOrigin: 'center center'
+                        transformOrigin: 'center center',
+                        // attr: {
+                        //     r: 50 / 2
+                        // }
 
                         // transformOrigin: `${Math.abs(navLeft - (navWidth / 3))}px ${navTop - (navHeight / 2)}px`
                         // y: -500,
@@ -112,6 +135,7 @@ const toggleMenu = (container) => {
                     document.body.style.top = -scroll + 'px';
                     document.body.classList.toggle('scroll--hidden');
                     this.header.classList.toggle('header--position');
+                    show().play();
 
                     if (this.header.classList.contains('header--size', 'header--position')) {
                         document.body.style.top = '';

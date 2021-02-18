@@ -6,7 +6,7 @@
   display: flex
   align-items: center
   justify-content: center
-  width: 12.5vw
+  width: 11.25vw
   transition: $transition
   border-radius: 50%
   // transform: translateY(-7.5%)
@@ -24,7 +24,7 @@
     background: center / contain no-repeat url('../img/logo_white.png')
     transition: $transition
     overflow: hidden
-    transform: translateY(-7.5%)
+    // transform: translateY(-7.5%)
 
   &__icon
     width: 20%
@@ -52,12 +52,13 @@
 
 @media screen and (max-width: 768px)
   .logo
-    width: 15vw
+    width: 17.5vw
     &__link
+      width: 80%
       min-height: 15vw
-      transform: translateY(-2.5%)
+      // transform: translateY(-2.5%)
     &__icon
-      transform: scale(1.5)
+      // transform: scale(1.5)
 
     &__caption
       font-size: 3vw
@@ -67,5 +68,6 @@
   .logo
     width: 25vw
     &__caption
+      min-height: 20vw
       font-size: 5vw
       padding: 1vw 0
