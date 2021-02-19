@@ -101,3 +101,7 @@
 //         transform: scale(0.75)
 //         &:hover
 //             opacity: 1
+@media screen and (max-device-width: 768px) and (min-device-width: 320px) and (orientation: landscape)
+    .gallery
+        &__slide
+            grid-template-columns: repeat(4,1fr)

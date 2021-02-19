@@ -20,6 +20,8 @@ const pageSliderAbout = (container) => {
         }
 
         sliderToggle() {
+
+            console.log(this.rootElement);
             this.sliderInner.style.width = 100 * this.sliderListItems.length + '%';
             this.sliderInner.style.display = 'flex';
             this.sliderInner.style.transition = 'all 0.5s ease';

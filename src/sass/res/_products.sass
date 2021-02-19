@@ -119,3 +119,14 @@
         &__title
             padding: 2.5vw 0
             font-size: 3.5vw
+@media screen and (max-device-width: 768px) and (min-device-width: 320px) and (orientation: landscape)
+    .products
+        &--wrapper
+            width: 95%
+            grid-template-columns: repeat(3, 1fr)
+        &__item
+            width: 85%
+
+    .product
+        &__title
+            padding: 3.5vw 0

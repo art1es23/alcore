@@ -3,9 +3,35 @@ import pageHome from './res/_Slider';
 import pageSlider from './res/_SliderTemplate';
 import toggleMenu from './res/_Menu';
 import pageSliderAbout from './res/_SliderAbout';
+import {
+    wrap
+} from 'gsap/gsap-core';
 // ===== init ======
+
+const wrapperPage = document.querySelector('.wrapper');
+
 toggleMenu();
 
+// const scrollUp = () => {
+
+//     wrapperPage.querySelector('.scroll-up__link').addEventListener('click', function (e) {
+//         e.preventDefault();
+//         document.querySelector('.main-content').scrollIntoView({
+//             behavior: 'smooth',
+//             block: 'start'
+//         });
+//     });
+
+// };
+// scrollUp();
+
+// if (wrapperPage.classList.contains('home-page')) {
+//     pageHome();
+// } else if (wrapperPage.classList.contains('about-page')) {
+//     pageSliderAbout();
+// } else if (wrapperPage.classList.contains('blog-page')) {
+//     pageSlider();
+// }
 barba.hooks.beforeEnter(data => {
     window.scrollTo(0, 0);
     // Menu.init();

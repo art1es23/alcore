@@ -239,3 +239,28 @@
         &__caption
           font-size: 5vw
           padding: 2vw 0
+@media screen and (max-device-width: 768px) and (min-device-width: 320px) and (orientation: landscape)
+  .header
+
+    &--size
+      & .logo
+        width: 20vw
+        &__link
+          min-height: 10vw
+
+      & .navigation
+        &__link
+          font-size: 3vw
+          padding: 2vw 1.5vw
+
+      & .submenu
+        display: none
+        &__link
+          font-size: 5vw
+          padding: 1.5vw
+
+    &--position
+      & .logo
+        &__caption
+          font-size: 5vw
+          padding: 2vw 0

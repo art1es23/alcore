@@ -118,7 +118,7 @@ const toggleMenu = (container) => {
                     if (this.header.classList.contains('header--size', 'header--position')) {
                         document.body.style.top = '';
 
-                        window.scrollTo(0, scroll);
+                        // window.scrollTo(0, scroll);
 
                         hide().play();
                     }
@@ -160,6 +160,21 @@ const toggleMenu = (container) => {
                     }
                 }
             });
+
+            let anchorLinks = document.querySelectorAll('.navigation .navigation__link');
+
+
+            anchorLinks.forEach(link =>
+                link.addEventListener('click', (e) => {
+                    document.body.classList.remove('scroll--hidden');
+
+                    this.header.classList.remove('header--size', 'header--position');
+                    this.menuNav.classList.toggle('navigation--show');
+                    this.menuToogle.classList.toggle('menu--toggle');
+                    hide().play();
+
+                })
+            );
         }
     }
 

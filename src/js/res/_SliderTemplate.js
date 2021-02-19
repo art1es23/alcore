@@ -23,7 +23,6 @@ const pageSlider = (container) => {
         }
 
         sliderToggle() {
-            console.log(this.sliderWrapperWidth);
             this.sliderInner.style.width = 100 * this.sliderListItems.length + '%';
             this.sliderInner.style.display = 'flex';
             this.sliderInner.style.transition = 'all 0.5s ease';
@@ -35,7 +34,7 @@ const pageSlider = (container) => {
             this.showCounter();
 
             this.nextBtn.addEventListener('click', () => {
-                console.log('NEXT');
+
                 if (this.slideOffset == this.sliderWrapperWidth * (this.sliderListItems.length - 1)) {
                     this.slideOffset = 0;
                 } else {
@@ -51,7 +50,7 @@ const pageSlider = (container) => {
             });
 
             this.prevBtn.addEventListener('click', () => {
-                console.log('PREVIOUS');
+
                 if (this.slideOffset == 0) {
                     this.slideOffset = this.sliderWrapperWidth * (this.sliderListItems.length - 1);
                 } else {
